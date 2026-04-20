@@ -77,11 +77,16 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Kesadaran Keamanan Informasi dan Privasi
+             Pengguna Media Sosial Instagram
+Database   : Google Scholar, Sinta, ITS Repository,
+             IEEE Xplore
+Query      : ("kesadaran keamanan informasi" OR
+             "information security awareness") AND
+             ("Instagram" OR "media sosial") AND
+             ("privasi" OR "privacy") NOT ("perusahaan")
+Tahun      : 2018–2024
+Hasil awal : 24 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
@@ -90,21 +95,37 @@ Literature Matrix (concept-centric):
 |       |       |        |      |        |            |
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
+  Metode dominan     : Survei kuesioner kuantitatif
+  Dataset umum       : Mahasiswa/pengguna aktif IG usia 18+
+                     di Indonesia, ukuran 100–200 responden
+  Limitasi berulang  : Sampel kecil & tidak representatif,
+                     instrumen terlalu sederhana (ya/tidak),
+                     tidak mengukur perilaku nyata vs persepsi
 
 GAP IDENTIFICATION
 
 Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+  Deskripsi    : Belum ada studi yang membandingkan tingkat
+                 kesadaran berdasarkan kelompok usia spesifik
+                 (Gen Z vs Milenial) pengguna Instagram Indonesia
+  Bukti        : Semua studi hanya membandingkan berdasarkan
+                 gender, bukan kelompok usia atau latar belakang
+                 pendidikan
+  Signifikansi : Kelompok usia yang berbeda memiliki pola
+                 penggunaan dan risiko yang berbeda — strategi
+                 edukasi tidak bisa satu ukuran untuk semua
 
 Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+  Deskripsi    : Semua studi menggunakan self-reported data
+                 (ya/tidak) yang tidak mencerminkan perilaku
+                 keamanan nyata pengguna di lapangan
+  Bukti        : Farida et al. (2024) dan Ratnadewati et al.
+                 (2024) keduanya mengandalkan kuesioner biner
+                 tanpa validasi perilaku aktual
+  Signifikansi : Ada celah antara "kesadaran yang dilaporkan"
+                 dengan "perilaku keamanan yang dipraktikkan"
+                 — studi observasional atau mixed method
+                 diperlukan untuk menutup gap ini
 
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
@@ -123,9 +144,9 @@ Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan databas
 > - Tulis query Boolean yang digunakan: contoh `("object detection" OR "image classification") AND ("edge computing") NOT ("medical")`. Dokumentasikan query secara eksplisit.
 > - Akses gratis: buka Google Scholar → cari judul paper → klik [PDF] jika tersedia, atau akses lewat campus VPN
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
+**Topik riset:** Kesadaran Keamanan Informasi dan Privasi Pengguna Instagram Indonesia
+**Query pencarian:**("kesadaran keamanan informasi" OR "information security awareness") AND ("Instagram" OR "social media") AND ("privasi" OR "privacy") NOT ("perusahaan" OR "enterprise")
+**Database:** Google Scholar, Sinta (sinta.kemdikbud.go.id), ITS Repository
 
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|

@@ -67,33 +67,35 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   : Keamanan Informasi / Cybersecurity
+  Konteks  : Penggunaan media sosial Instagram di       kalangan mahasiswa Indonesia
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Perilaku dan kebiasaan pengguna Instagram dalam mengamankan akun dan data pribadi
+  Process     : Survei kuesioner untuk mengukur tingkat kesadaran keamanan informasi dan privasi
+  Output      : Persentase tingkat kesadaran pengguna berdasarkan aspek keamanan dan privasi
+  Outcome     : Rekomendasi edukasi keamanan digital untuk meningkatkan literasi pengguna
+  Constraints : Self-reported data, sampel terbatas 150 responden, format jawaban ya/tidak
+  Stakeholders: Pengguna Instagram, peneliti, institusi pendidikan, platform Instagram
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati             : Pengguna Instagram aktif membagikan data pribadi tanpa memahami risikonya
+  Gejala (symptom) yang terukur     : Hanya 39% pengguna aktifkan 2FA, hanya 31% membaca kebijakan privasi Instagram
+  Masalah yang didiagnosis          : Rendahnya literasi keamanan digital pengguna Instagram di Indonesia
+  Masalah riset (researchable)      : Seberapa tinggi tingkat kesadaran keamanan informasi dan privasi pengguna
+                                      Instagram di Indonesia?
+  Variabel yang terukur             : Persentase penggunaan 2FA, kekuatan password, aktivasi pengaturan privasi, pemahaman
+                                      kebijakan privasi
 
 Problem Quality Check
-  [ ] Clarity — Apakah satu orang membaca akan paham?
-  [ ] Measurability — Apakah ada metrik kuantitatif?
-  [ ] Relevance — Apakah penting untuk domain?
-  [ ] Testability — Apakah bisa gagal?
-  [ ] Impact — Apakah ada kontribusi jika terjawab?
+  [x] Clarity — Apakah satu orang membaca akan paham?
+  [x] Measurability — Apakah ada metrik kuantitatif?
+  [x] Relevance — Apakah penting untuk domain?
+  [x] Testability — Apakah bisa gagal?
+  [x] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  ____________________
+  Meskipun pengguna Instagram di Indonesia telah mencapai 88,86 juta pada 2024, tingkat kesadaran keamanan informasi dan privasi pengguna masih rendah — ditandai dengan hanya 39% yang mengaktifkan autentikasi dua faktor dan 31% yang membaca kebijakan privasi platform. Kondisi ini meningkatkan risiko pencurian identitas dan penyalahgunaan data pribadi. Oleh karena itu, diperlukan analisis terukur terhadap tingkat kesadaran keamanan informasi dan privasi pengguna Instagram guna menjadi dasar rekomendasi edukasi literasi digital yang efektif.
 ```
 
 ---
@@ -102,17 +104,17 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** Kesadaran Keamanan Informasi Pengguna Instagram
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | Jutaan pengguna Instagram aktif membagikan data pribadi setiap hari tanpa mempertimbangkan risiko keamanan |
+| Observed Issue (Symptom) | Hanya 39% pengguna mengaktifkan 2FA dan hanya 31% membaca kebijakan privasi Instagram |
+| Diagnosed Problem (Root Cause) | Rendahnya literasi digital pengguna terkait praktik keamanan akun dan perlindungan data pribadi |
+| Researchable Problem | Seberapa tinggi tingkat kesadaran keamanan informasi dan privasi pengguna Instagram Indonesia, dan faktor apa yang mempengaruhinya? |
+| Measurable Variable | Persentase penggunaan 2FA, kekuatan password, aktivasi privacy setting, frekuensi ganti password |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
+**Apakah terjebak solution-first thinking?** [] Ya / [x] Tidak
 > Jika ya, kembali ke tahap mana? ________________________
 
 ---
@@ -123,14 +125,14 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | Jawaban kuesioner ya/tidak dari 150 pengguna Instagram usia 18+ |
+| Process | Analisis persentase per pertanyaan, perbandingan berdasarkan gender |
+| Output | Skor persentase kesadaran keamanan dan privasi per aspek |
+| Outcome | Rekomendasi edukasi literasi digital untuk pengguna Instagram Indonesia |
+| Constraints | Format jawaban terbatas ya/tidak, sampel tidak merepresentasikan seluruh demografi Indonesia |
+| Stakeholders | Pengguna Instagram, peneliti TI, institusi pendidikan, tim keamanan Meta/Instagram |
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
+**Komponen mana yang paling relevan dengan masalah riset?** Process — karena metode analisis menentukan seberapa valid kesimpulan yang dihasilkan dari data kuesioner
 
 ---
 
@@ -140,17 +142,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | 4 | Masalah cukup jelas — rendahnya kesadaran 2FA dan kebijakan privasi mudah dipahami, namun belum spesifik pada kelompok usia tertentu |
+| Measurability | 4 | Ada metrik kuantitatif berupa persentase, namun instrumen ya/tidak kurang menangkap gradasi kesadaran secara mendalam |
+| Relevance | 5 | Sangat relevan — 88 juta pengguna Instagram Indonesia menjadikan isu ini krusial untuk keamanan digital nasional |
+| Testability | 3 | Bisa diuji lewat survei, namun hasil bisa bias karena responden menjawab sesuai yang "seharusnya" bukan kondisi nyata |
+| Impact | 4 | Jika terjawab, memberikan dasar kebijakan edukasi digital — namun perlu skala sampel lebih besar agar berdampak lebih luas |
 
-**Skor total:** _____ / 25
+**Skor total:** 20 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
+> Rendahnya kesadaran keamanan informasi pengguna Instagram di Indonesia — yang tercermin dari minimnya adopsi autentikasi dua faktor (39%) dan pemahaman kebijakan privasi (31%) — menciptakan celah risiko pencurian identitas dan penyalahgunaan data pribadi yang signifikan. Penelitian ini bertujuan menganalisis tingkat kesadaran tersebut secara terukur sebagai landasan rekomendasi edukasi literasi keamanan digital yang tepat sasaran.
 
 ---
 
@@ -159,5 +160,4 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Bug atau error saat coding bersifat konkret dan langsung terlihat — ada pesan error, ada baris kode yang salah, dan solusinya bisa langsung dicoba. Masalah riset justru sebaliknya: tidak selalu terlihat jelas, harus didefinisikan dulu sebelum bisa dijawab, dan "solusi" belum boleh diasumsikan sejak awal. Perbedaan fundamentalnya adalah — bug punya jawaban benar yang pasti, sedangkan masalah riset punya jawaban yang perlu dibuktikan dan bisa saja hasilnya mengejutkan atau bahkan menggugurkan asumsi awal peneliti.

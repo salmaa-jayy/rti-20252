@@ -61,25 +61,28 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
-Tanggal          : ____________________
+Nama Peneliti    : Salma Zaidah
+Tanggal          : April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: Siapa respondennya, berapa jumlahnya, dan apakah sampel benar-benar representatif?
+   - Data yang dibutuhkan untuk verifikasi: Jumlah dan profil responden, metode sampling, instrumen pengukuran yang digunakan, dan apakah hasil sudah diuji validitas & reliabilitasnya
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
+   - Pendekatan: [x] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
+   - Alasan: Penelitian menggunakan kuesioner terstruktur dengan jawaban ya/tidak dan analisis persentase kuantitatif untuk mengukur tingkat kesadaran keamanan pengguna Instagram secara objektif dan terukur
+
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
+   - Asumsi tersembunyi: Jawaban responden dianggap jujur dan akurat, padahal format ya/tidak mendorong responden menjawab sesuai yang "seharusnya" bukan kondisi nyata (social desirability bias)
+   - Sumber bias potensial: Convenience sampling — kuesioner
+     disebarkan lewat medsos peneliti sendiri (Instagram, WA, Telegram) sehingga responden cenderung berasal dari lingkaran sosial yang homogen
+   - Langkah mitigasi: Tambahkan pertanyaan skenario konkret untuk mengukur perilaku nyata, perluas saluran distribusi kuesioner, dan tambahkan uji validitas instrumen
+
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Persentase hasil kuesioner tidak akan dibulatkan atau diseleksi untuk mendukung kesimpulan tertentu — semua data dilaporkan apa adanya termasuk yang bertentangan dengan hipotesis
+   - Batasan yang diakui sejak awal: Sampel 150 responden tidak dapat digeneralisasi ke seluruh pengguna Instagram Indonesia (88 juta pengguna), dan self-reported data tidak menjamin perilaku keamanan yang sebenarnya di lapangan
 ```
 
 ---
@@ -93,23 +96,24 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
+> Judul: Analisis Kesadaran Keamanan Informasi Dan Privasi Pada Pengguna
+Media Sosial Instagram
+> Penulis (Tahun): 2024
+> Sumber/Link DOI: https://www.ojs.udb.ac.id/Senatib/article/view/4626/3084
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | Menyebarkan kuesioner online via Google Form ke pengguna Instagram usia 18+ | Hanya menjangkau pengguna yang aktif di medsos — yang tidak aktif tidak terwakili |
+| Data → Processing | Mengubah jawaban "ya/tidak" menjadi persentase per pertanyaan | Format ya/tidak terlalu menyederhanakan — tidak ada gradasi tingkat kesadaran |
+| Processing → Analysis | Membandingkan persentase antar gender (laki-laki vs perempuan) | Hanya dibandingkan berdasarkan gender, tidak ada faktor usia, pendidikan, atau domisili |
+| Analysis → Inference | Menyimpulkan tingkat kesadaran keamanan pengguna Instagram Indonesia | 150 responden tidak cukup representatif untuk 88 juta pengguna Instagram Indonesia |
+| Inference → Knowledge | Merekomendasikan perlunya edukasi keamanan digital lebih lanjut | Rekomendasi bersifat umum, tidak ada langkah konkret yang terukur |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Data → Processing
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. Format jawaban hanya "ya" atau "tidak" — tidak bisa membedakan pengguna yang tahu tapi tidak melakukan dengan yang benar-benar tidak tahu sama sekali
+2. Sampel 150 responden dipilih secara acak dari lingkaran medsos peneliti sendiri (disebarkan via Instagram, WA, Telegram) — berpotensi convenience sampling bias, bukan benar-benar random
 
 ---
 
@@ -119,30 +123,29 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | Laporkan kedua versi hasil — dengan dan tanpa outlier, lengkap dengan alasan statistik penghapusan |
+| Transparansi | Jelaskan secara eksplisit di bagian metodologi mengapa outlier dihapus, lampirkan data mentah di appendix |
+| Peer review | Reviewer berhak meminta justifikasi penghapusan outlier; tanpa transparansi, paper bisa ditolak atau dicabut |
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+> Outlier tidak boleh dihapus hanya karena membuat hasil tidak signifikan. Dalam konteks jurnal ini misalnya — jika ada responden yang menjawab tidak konsisten, peneliti wajib melaporkannya sebagai limitasi, bukan menghapusnya diam-diam. Penghapusan selektif demi signifikansi disebut p-hacking dan merupakan pelanggaran etika penelitian.
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:** Analisis Kesadaran Keamanan Informasi dan Privasi pada Pengguna Media Sosial Instagram
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | 5 — topik mengukur tingkat kesadaran secara numerik, cocok untuk uji statistik dan kuesioner terstruktur | 2 — topik tidak menggali makna atau pengalaman mendalam pengguna | 1 — tidak membangun artefak/sistem baru |
+| Jenis data yang dikumpulkan | Persentase jawaban ya/tidak, perbandingan antar gender, angka statistik deskriptif | Wawancara mendalam, narasi pengalaman pengguna soal privasi | Prototipe fitur keamanan, hasil pengujian sistem |
+| Limitasi paradigma | Tidak menangkap mengapa pengguna tidak mengaktifkan 2FA — hanya tahu berapa banyak yang tidak | Sulit digeneralisasi, tidak menghasilkan angka yang bisa dibandingkan lintas studi | Tidak relevan karena penelitian ini bukan membangun sistem |
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
-
+**Paradigma yang dipilih:** Positivis
+**Alasan:** Jurnal ini menggunakan pendekatan kuantitatif dengan kuesioner terstruktur dan analisis persentase. Tujuannya mengukur dan membandingkan tingkat kesadaran secara objektif — sesuai ciri khas paradigma positivis yang mengandalkan data numerik dan pengukuran yang dapat direplikasi.
 ---
 
 ## Refleksi
@@ -150,5 +153,4 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Sebelumnya, klaim "95% akurat" mungkin langsung diterima begitu saja karena terlihat meyakinkan secara angka. Setelah memahami rantai distorsi, pertanyaan yang sekarang akan diajukan adalah: Siapa 150 responden itu dan bagaimana cara mereka dipilih? Apakah format kuesioner benar-benar mengukur kesadaran nyata, atau sekadar pengakuan diri? Angka 80% pengguna pakai password kuat misalnya — apakah itu karena mereka benar-benar pakai, atau karena mereka merasa sudah pakai? Distorsi terbesar justru sering tersembunyi di instrumen pengukuran yang tampak sederhana.
