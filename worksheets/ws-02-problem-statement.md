@@ -115,7 +115,7 @@ Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Pro
 | Measurable Variable | Persentase penggunaan 2FA, kekuatan password, aktivasi privacy setting, frekuensi ganti password |
 
 **Apakah terjebak solution-first thinking?** [] Ya / [x] Tidak
-> Jika ya, kembali ke tahap mana? ________________________
+> Jika ya, kembali ke tahap mana? 
 
 ---
 
