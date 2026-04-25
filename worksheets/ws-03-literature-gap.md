@@ -79,8 +79,7 @@ LITERATURE MAPPING
 
 Topik      : Kesadaran Keamanan Informasi dan Privasi
              Pengguna Media Sosial Instagram
-Database   : Google Scholar, Sinta, ITS Repository,
-             IEEE Xplore
+Database   : Google Scholar
 Query      : ("kesadaran keamanan informasi" OR
              "information security awareness") AND
              ("Instagram" OR "media sosial") AND
@@ -92,7 +91,11 @@ Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
 |-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+| Farida et al. | 2024 | Survei/Kuivisoner | 150 responden IG | 39% aktifkan 2FA, 31% baca kebijakan privasi | Sampel kecil, format ya/tidak, convenience sampling |
+| Ratnadewati et al. | 2024  | Survei kuantitatif | Pengguna IG    | 17% kesadaran tinggi, 33% sedang, 33% rendah| Tidak menjelaskan faktor penyebab rendahnya kesadaran |
+| Muhammad (ITS) | 2023  | Survei/Kuesioner| Mahasiswa SI ITS   | Kesadaran keamanan mahasiswa TI lebih tinggi dari rata-rata | Terbatas satu institusi, tidak general |
+| Fauzia et al. (UI) | 2024  | Survei + SEM    | Pengguna TikTok/IG/YT Indonesia | Kekhawatiran privasi meningkat pasca data breach 2021 | Tidak mengukur perilaku nyata pengguna |
+| Akraman et al. | 2018  | Survei kuantitatif | Pengguna smartphone Android Indonesia | Kesadaran privasi pengguna smartphone masih rendah | Data sudah lama, belum mencakup konteks Instagram terkini |
 
 Pola yang ditemukan:
   Metode dominan     : Survei kuesioner kuantitatif
@@ -115,7 +118,7 @@ Gap 1: [Jenis: performance / method / data / context]
                  penggunaan dan risiko yang berbeda — strategi
                  edukasi tidak bisa satu ukuran untuk semua
 
-Gap 2: [Jenis: ____]
+Gap 2: [Jenis: method]
   Deskripsi    : Semua studi menggunakan self-reported data
                  (ya/tidak) yang tidak mencerminkan perilaku
                  keamanan nyata pengguna di lapangan
