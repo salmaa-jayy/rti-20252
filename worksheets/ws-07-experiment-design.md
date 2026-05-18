@@ -170,5 +170,5 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 **Jawaban:**
 1. Baseline-nya siapa dan seberapa kuat? Apakah baseline yang "dikalahkan" adalah metode state-of-the-art yang sesungguhnya, atau sengaja dipilih yang lemah (straw man) agar terlihat mudah diungguli? Baseline yang tidak representatif membuat klaim "mengalahkan semua baseline" tidak bermakna.
-2. Kondisi eksperimennya fair?  Apakah semua metode diuji pada dataset yang sama, preprocessing yang sama, dan tuning effort yang sebanding? Kalau metode baru di-tuning lebih banyak dari baseline, kemenangan itu bukan karena metodenya lebih baik — tapi karena usaha optimasinya lebih besar.
+2. Kondisi eksperimennya fair?  Apakah semua metode diuji pada dataset yang sama, preprocessing yang sama, dan tuning effort yang sebanding? Kalau metode baru di-tuning lebih banyak dari baseline, kemenangan itu bukan karena metodenya lebih baik, tapi karena usaha optimasinya lebih besar.
 3. "Mengalahkan" sebesar berapa? Apakah perbedaannya signifikan secara statistik DAN bermakna secara praktis? Peningkatan akurasi 0,1% yang signifikan secara statistik belum tentu relevan di dunia nyata.
