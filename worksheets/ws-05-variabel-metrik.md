@@ -90,7 +90,7 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** Faktor persepsi apa yang secara signifikan berhubungan dengan rendahnya adopsi 2FA di kalangan mahasiswa pengguna Instagram di Yogyakarta?
+**RQ:** Faktor persepsi apa yang secara signifikan berhubungan dengan rendahnya adopsi 2FA di kalangan mahasiswa pengguna Instagram di Kebumen?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
@@ -119,7 +119,7 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 > Jika ya, apa dan mengapa? Perlu tambahan Net Promoter Score (NPS) keamanan digital atau skor literasi keamanan sebagai secondary metric — untuk validasi silang apakah yang bilang "sadar risiko" di kuesioner beneran paham ancaman atau cuma merasa paham
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> Kalau mayoritas mahasiswa TI Yogyakarta udah sadar keamanan lebih tinggi dari rata-rata nasional, skor Likert mereka bakal numpuk di angka 4–5 semua — akibatnya variasi antar responden kecil banget dan korelasi antar variabel jadi susah terdeteksi secara statistik
+> Kalau mayoritas mahasiswa TI Kebumen udah sadar keamanan lebih tinggi dari rata-rata nasional, skor Likert mereka bakal numpuk di angka 4–5 semua — akibatnya variasi antar responden kecil banget dan korelasi antar variabel jadi susah terdeteksi secara statistik
 
 ---
 

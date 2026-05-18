@@ -70,11 +70,11 @@ RQ-CONTRIBUTION-HYPOTHESIS
 Gap Statement  : Studi yang ada cuma ngukur "berapa persen" pengguna yang sadar atau nggak, tapi nggak njelasin KENAPA mereka nggak nerapin praktik keamanan kayak 2FA, padahal tanpa tau penyebabnya, rekomendasi edukasi nggak bakal tepat sasaran
 Research Question:
   Tipe         : [ ] Comparison  [ ] Improvement  [x] Exploratory
-  Formulasi    : Faktor apa saja yang memengaruhi rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Yogyakarta?
+  Formulasi    : Faktor apa saja yang memengaruhi rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Kebumen?
   Variabel IV  : Faktor persepsi (kemudahan, manfaat, kesadaran risiko, pengaruh sosial)
   Variabel DV  : Tingkat adopsi 2FA dan praktik keamanan akun Instagram
   Metrik       : Skor Likert per faktor, persentase adopsi 2FA, korelasi antar variabel
-  Dataset      : Survei 200+ mahasiswa aktif pengguna Instagram di Yogyakarta
+  Dataset      : Survei 200+ mahasiswa aktif pengguna Instagram di Kebumen
   Baseline     : Farida et al. (2024) — 39% adopsi 2FA pada pengguna Instagram Indonesia
 
 Quality Check RQ:
@@ -87,11 +87,11 @@ Quality Check RQ:
 Contribution Statement:
   Apa yang baru diketahui : Faktor-faktor spesifik yang jadi penghambat adopsi 2FA pada mahasiswa Indonesia — bukan sekadar angka persentase adopsi
   Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [x] Novel approach
-  Gap yang diisi          : Method gap — dari instrumen biner ya/tidak ke skala Likert yang bisa nangkep gradasi persepsi pengguna; dan context gap — fokus mahasiswa Yogyakarta yang belum pernah diteliti
+  Gap yang diisi          : Method gap — dari instrumen biner ya/tidak ke skala Likert yang bisa nangkep gradasi persepsi pengguna; dan context gap — fokus mahasiswa Kebumen yang belum pernah diteliti
 
 Hypothesis Pair:
-  H₀ : Tidak ada hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Yogyakarta
-  H₁ : Terdapat hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Yogyakarta
+  H₀ : Tidak ada hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Kebumen
+  H₁ : Terdapat hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Kebumen
   Threshold              : p-value < 0,05
   Justifikasi threshold  : Threshold 0,05 adalah standar umum dalam penelitian sosial kuantitatif dan konsisten dengan studi keamanan informasi sejenis (Akraman et al., 2018)
 ```
@@ -118,7 +118,7 @@ Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 **Tipe RQ:** [ ] Comparison / [ ] Improvement / [x] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> Faktor persepsi apa saja (kemudahan, manfaat, kesadaran risiko, pengaruh sosial) yang secara signifikan berhubungan dengan rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Yogyakarta, dibandingkan baseline adopsi 39% dari Farida et al. (2024)?
+> Faktor persepsi apa saja (kemudahan, manfaat, kesadaran risiko, pengaruh sosial) yang secara signifikan berhubungan dengan rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Kebumen, dibandingkan baseline adopsi 39% dari Farida et al. (2024)?
 ---
 
 ## Latihan 2 — Hypothesis Pair
@@ -127,8 +127,8 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | Tidak ada hubungan signifikan antara faktor persepsi kemudahan, manfaat, kesadaran risiko, dan pengaruh sosial dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Yogyakarta |
-| H₁ | Minimal satu faktor persepsi (kemudahan, manfaat, kesadaran risiko, atau pengaruh sosial) memiliki hubungan signifikan dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Yogyakarta |
+| H₀ | Tidak ada hubungan signifikan antara faktor persepsi kemudahan, manfaat, kesadaran risiko, dan pengaruh sosial dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Kebumen |
+| H₁ | Minimal satu faktor persepsi (kemudahan, manfaat, kesadaran risiko, atau pengaruh sosial) memiliki hubungan signifikan dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Kebumen |
 | Metrik | Koefisien korelasi Spearman / skor regresi logistik per faktor |
 | Threshold | p-value < 0,05 |
 | Justifikasi threshold | Standar konvensional penelitian sosial kuantitatif; digunakan konsisten di studi keamanan informasi sejenis di Indonesia |
@@ -143,11 +143,11 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | Faktor persepsi apa yang berhubungan dengan rendahnya adopsi 2FA mahasiswa pengguna Instagram di Yogyakarta? |
+| RQ | Faktor persepsi apa yang berhubungan dengan rendahnya adopsi 2FA mahasiswa pengguna Instagram di Kebumen? |
 | Variable (IV) | Persepsi kemudahan (perceived ease of use), persepsi manfaat (perceived usefulness), kesadaran risiko, pengaruh sosial |
 | Variable (DV) | Tingkat adopsi 2FA — apakah aktif menggunakan atau tidak, dan seberapa konsisten |
 | Metric | Skor Likert 1–5 per faktor IV; persentase & frekuensi adopsi 2FA sebagai DV; koefisien korelasi Spearman |
-| Data source | Kuesioner online Google Form, 200+ mahasiswa aktif Instagram usia 18–25 tahun di Yogyakarta |
+| Data source | Kuesioner online Google Form, 200+ mahasiswa aktif Instagram usia 18–25 tahun di Kebumen |
 | Analysis method | Analisis deskriptif (distribusi frekuensi) + uji korelasi Spearman + regresi logistik untuk identifikasi faktor dominan |
 
 **Apakah rantai lengkap?** [x] Ya / [ ] Tidak

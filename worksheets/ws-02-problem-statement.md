@@ -68,7 +68,7 @@ PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
   Domain   : Keamanan Informasi / Cybersecurity
-  Konteks  : Penggunaan media sosial Instagram di       kalangan mahasiswa Indonesia
+  Konteks  : Penggunaan media sosial Instagram di       kalangan mahasiswa Indonesia (dalam riset ini, spesifik Kebumen)
 
 System Context
   Input       : Perilaku dan kebiasaan pengguna Instagram dalam mengamankan akun dan data pribadi
