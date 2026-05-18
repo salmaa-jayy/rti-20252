@@ -67,7 +67,7 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : Studi yang ada cuma ngukur "berapa persen" pengguna yang sadar atau nggak, tapi nggak njelasin KENAPA mereka nggak nerapin praktik keamanan kayak 2FA, padahal tanpa tau penyebabnya, rekomendasi edukasi nggak bakal tepat sasaran
+Gap Statement  : Studi yang ada cuma ngukur "berapa persen" pengguna yang sadar atau tidak, tapi tidak menjelaskan KENAPA mereka tidak menerapkan praktik keamanan kayak 2FA, padahal tanpa tau penyebabnya, rekomendasi edukasi tidak akan tepat sasaran
 Research Question:
   Tipe         : [ ] Comparison  [ ] Improvement  [x] Exploratory
   Formulasi    : Faktor apa saja yang memengaruhi rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Kebumen?
@@ -102,9 +102,9 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** Semua studi cuma pakai kuesioner biner (ya/tidak) yang nggak bisa bedain "tahu tapi nggak lakuin" vs "beneran nggak tahu" — dan belum ada yang neliti faktor penyebab di balik rendahnya adopsi 2FA khususnya di kalangan mahasiswa
+**Gap dari WS-03:** Semua studi cuma pakai kuesioner biner (ya/tidak) yang tidak bisa dibedakan "tahu tapi nggak lakuin" vs "beneran nggak tahu" — dan belum ada yang neliti faktor penyebab di balik rendahnya adopsi 2FA khususnya di kalangan mahasiswa
 **RQ versi pertama (tulis bebas):**
-> Kenapa mahasiswa pengguna Instagram banyak yang nggak aktifin 2FA padahal mereka tahu fitur itu ada?
+> Kenapa mahasiswa pengguna Instagram banyak yang tidak aktifin 2FA padahal mereka tahu fitur itu ada?
 
 **Evaluasi RQ:**
 
@@ -134,7 +134,7 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 | Justifikasi threshold | Standar konvensional penelitian sosial kuantitatif; digunakan konsisten di studi keamanan informasi sejenis di Indonesia |
 
 **Apakah hipotesis ini falsifiable?** [x] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? Cara membuktikannya salah: Kalau hasil uji statistik menunjukkan p-value ≥ 0,05 untuk semua faktor, berarti H₁ gagal didukung dan H₀ tidak bisa ditolak — artinya faktor persepsi yang diuji nggak terbukti berhubungan dengan adopsi 2FA
+> Bagaimana cara membuktikannya salah? Cara membuktikannya salah: Kalau hasil uji statistik menunjukkan p-value ≥ 0,05 untuk semua faktor, berarti H₁ gagal didukung dan H₀ tidak bisa ditolak — artinya faktor persepsi yang diuji tidak terbukti berhubungan dengan adopsi 2FA
 ---
 
 ## Latihan 3 — Rantai Operasionalisasi
@@ -161,4 +161,4 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 **Judul:** Analisis Kesadaran Keamanan Informasi dan Privasi pada Pengguna Media Sosial Instagram (Farida et al., 2024)
 **RQ yang diekstrak:** Seberapa tinggi tingkat kesadaran keamanan informasi dan privasi pengguna Instagram di Indonesia?
-**Komponen yang hilang:** Metode spesifik nggak disebutin di RQ-nya — cuma bilang "seberapa tinggi" tanpa jelasin pakai instrumen apa dan dibandingkan sama apa. Baseline juga nggak ada, jadi nggak jelas "tinggi" itu relatif terhadap apa. Harusnya RQ-nya lebih ke: "Seberapa tinggi tingkat kesadaran keamanan informasi pengguna Instagram Indonesia diukur menggunakan instrumen X, dibandingkan standar literasi digital minimum Y?" — baru bisa dievaluasi secara ilmiah.
+**Komponen yang hilang:** Metode spesifik tidak disebutkan di RQ-nya — cuma bilang "seberapa tinggi" tanpa jelasin pakai instrumen apa dan dibandingkan sama apa. Baseline juga tidak ada, jadi tidak jelas "tinggi" itu relatif terhadap apa. Harusnya RQ-nya lebih ke: "Seberapa tinggi tingkat kesadaran keamanan informasi pengguna Instagram Indonesia diukur menggunakan instrumen X, dibandingkan standar literasi digital minimum Y?" — baru bisa dievaluasi secara ilmiah.

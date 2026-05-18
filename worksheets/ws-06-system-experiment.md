@@ -3,7 +3,6 @@
 > **Bab 6 — System Design sebagai Experimental Artifact**
 
 ---
-
 ## Ringkasan Materi
 
 ### Sistem = Instrumen Pengujian, Bukan Produk
@@ -167,5 +166,4 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> Kalau sistem dibangun monolitik dulu baru dieksplorasi, kita nggak bisa tahu komponen mana yang sebenernya yang bikin hasil bagus atau jelek — semuanya nyampur jadi satu dan susah diisolasi. Misalnya kalau hasil korelasi ternyata nggak signifikan, kita nggak bisa bedain apakah masalahnya di instrumen kemudahan, di pengukuran DV, atau di cara kontrolnya. Arsitektur modular penting untuk riset justru karena riset itu sifatnya investigatif — kita perlu bisa cabut satu komponen, lihat apa yang berubah, dan dari situ baru bisa narik kesimpulan yang valid. Tanpa modularitas, eksperimen jadi nggak bisa direproduksi dan kontribusinya nggak bisa diklaim dengan jelas.
-> ___________________________________________________
+> Kalau sistem dibangun monolitik dulu baru dieksplorasi, kita tidak bisa tahu komponen mana yang sebenernya yang bikin hasil bagus atau jelek — semuanya nyampur jadi satu dan susah diisolasi. Misalnya kalau hasil korelasi ternyata tidak signifikan, kita tidak bisa bedain apakah masalahnya di instrumen kemudahan, di pengukuran DV, atau di cara kontrolnya. Arsitektur modular penting untuk riset justru karena riset itu sifatnya investigatif — kita perlu bisa cabut satu komponen, lihat apa yang berubah, dan dari situ baru bisa narik kesimpulan yang valid. Tanpa modularitas, eksperimen jadi tidak bisa direproduksi dan kontribusinya tidak bisa diklaim dengan jelas.
