@@ -68,15 +68,18 @@ Run gagal/anomali tidak boleh dihapus tanpa dokumentasi. Bisa jadi:
 ```
 EXECUTION PLAN
 
-| Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
-|-------|----------|------|-----------|--------|-------|-------------|
-| 1     |          |      |           |        |       |             |
-| 2     |          |      |           |        |       |             |
-| 3     |          |      |           |        |       |             |
-| ...   |          |      |           |        |       |             |
+| Run # | Skenario                        | Seed | Parameter                          | Status  | Waktu   | Output File                    |
+|-------|---------------------------------|------|------------------------------------|---------|---------|-------------------------------|
+| 1     | Validasi instrumen (pilot test) | 42   | n=20, cronbach_min=0.7             | Planned | ~1 hari | output/cronbach_pilot.csv     |
+| 2     | Pengumpulan data penuh          | 42   | n=200+, 4 jurusan, attention check | Planned | ~2 minggu | output/responses_clean.csv  |
+| 3     | Analisis korelasi Spearman      | 42   | alpha=0.05, effect_min=0.3         | Planned | ~1 hari | output/spearman_results.csv   |
+| 4     | Regresi logistik                | 42   | alpha=0.05, cv=5                   | Planned | ~1 hari | output/logistic_results.csv   |
+| 5     | Robustness check (subsampel)    | 42   | n=150, random subsample            | Planned | ~1 hari | output/robustness_check.csv   |
+| 6     | Robustness check (subsampel)    | 123  | n=150, random subsample            | Planned | ~1 hari | output/robustness_check_2.csv |
+| 7     | Robustness check (subsampel)    | 999  | n=150, random subsample            | Planned | ~1 hari | output/robustness_check_3.csv 
 
-Jumlah runs per skenario : ____
-Total runs               : ____
+Jumlah runs per skenario : 1-3 (robustness check 3x)
+Total runs               : 7
 
 DATA LOG (per run):
   Run ID    : ____________________
@@ -96,15 +99,17 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| 1 | Pilot test validasi instrumen Likert | 42 | n=20 responden awal, cronbach_min=0.7 | Planned |
+| 2 | Pengumpulan data penuh lintas jurusan | 42 | n=200+, 4 jurusan, filter attention check aktif | Planned |
+| 3 | Korelasi Spearman IV–DV (full sample) | 42 | alpha=0.05, effect_size_min=0.3 | Planned |
+| 4 | Regresi logistik faktor dominan | 42 | alpha=0.05, 5-fold cross validation | Planned |
+| 5 | Robustness check subsampel run 1 | 42 | n=100, random subsample dari data penuh | Planned |
+| 6 | Robustness check subsampel run 2 | 123 | n=100, random subsample dari data penuh | Planned |
+| 7 | Robustness check subsampel run 3 | 999 | n=100, random subsample dari data penuh | Planned |
 
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+**Total skenario:** 4 (validasi, pengumpulan, korelasi, regresi) + 1 robustness check
+**Run per skenario:** 1 untuk skenario utama, 3 untuk robustness check
+**Total run keseluruhan:** 7
 
 ---
 
@@ -115,25 +120,30 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Run ID | run-003 |
+| Timestamp | 2025-05-01T09:30:00 |
+| Peneliti | Salma Zaidah |
+| Versi notebook | commit a3f1b2c (GitHub rti-20252) |
 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
-| | |
+| Seed | 42 |
+| Code version | commit a3f1b2c |
+| Config file | config.yaml v1.2 |
+
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
+| Cronbach's Alpha per faktor |  |  |
+| Koefisien korelasi Spearman (r) | | |
+| p-value per faktor | | |
+| % adopsi 2FA | | |
+| Koefisien regresi logistik | | |
+| Skor konsistensi penggunaan 2FA | | |
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [x] CSV - dipilih karena mudah dibuka di Excel, kompatibel dengan semua tools analisis, dan bisa di-version control di GitHub
 
 ---
 
@@ -143,10 +153,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+| Run gagal/data corrupt | Export CSV Google Forms rusak atau kolom tidak sesuai skema | Detect: cek jumlah kolom vs skema; Investigate: buka file mentah manual; Document: catat di log anomali; Decide: re-export dari Google Forms dengan filter tanggal yang sama |
+| Hasil ekstrem | Cronbach's Alpha sangat rendah (α < 0.5) pada satu faktor IV | Detect: cek output cronbach.csv; Investigate: review item pertanyaan faktor tersebut — kemungkinan item ambigu; Document: catat faktor mana dan α-nya; Decide: revisi item dan ulangi pilot test sebelum pengumpulan data penuh |
+| Waktu eksekusi anomali | Notebook analisis berjalan >10 menit padahal dataset hanya 200 baris | Detect: monitor waktu eksekusi per cell; Investigate: cek apakah ada loop yang tidak efisien atau data tidak ter-filter; Document: catat cell mana yang lambat; Decide: optimasi kode atau restart kernel dan clear cache |
+| Inkonsistensi dengan run lain | Hasil korelasi Spearman berbeda di robustness check run 1 vs run 2 | Detect: bandingkan output/spearman_results.csv ketiga run; Investigate: cek apakah seed dan filter attention check konsisten; Document: catat perbedaan nilai r dan kemungkinan penyebab; Decide: jika perbedaan > 0.05, laporkan sebagai limitasi stabilitas; jika < 0.05, laporkan rata-rata ketiga run |
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -157,6 +167,6 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Pernah mengumpulkan tugas laporan dari single run percobaan di lab — misalnya mencatat satu hasil pengukuran dan langsung menjadikannya kesimpulan. Risikonya adalah hasil tersebut bisa saja kebetulan — noise, kondisi yang tidak representatif, atau error yang tidak terdeteksi. Kalau ternyata run kedua hasilnya beda, seluruh kesimpulan bisa runtuh.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Selalu jalankan minimal 3 run dengan seed berbeda untuk bagian yang melibatkan randomness (subsampel, split data), dan dokumentasikan setiap run di log terstruktur sejak awal — bukan dicatat belakangan dari ingatan. Dengan multiple run, kepercayaan terhadap hasil jauh lebih tinggi karena bisa ditunjukkan bahwa temuan konsisten, bukan kebetulan satu kali.
