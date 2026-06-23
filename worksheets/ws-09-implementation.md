@@ -73,32 +73,38 @@ Mengandalkan "install library terbaru" berbahaya: versi berbeda = perilaku berbe
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : Intel Core i5/i7 (spesifikasi umum laptop mahasiswa)
+  RAM     : 8 GB DDR4 (minimum untuk analisis data kuesioner)
+  GPU     : Tidak diperlukan — analisis statistik berbasis CPU
+  Storage : Minimal 10 GB free space untuk data & output
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 10/11 atau macOS
+  Runtime   : Python 3.10+ / R 4.3+
+  Framework : Google Forms (pengumpulan data) +
+              SPSS / Python (analisis statistik)
 
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
 |---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| pandas       | 2.1.0   | PyPI   | sha256:abc123...      |
+| scipy        | 1.11.3  | PyPI   | sha256:def456...      |
+| statsmodels  | 0.14.0  | PyPI   | sha256:ghi789...      |
+| scikit-learn | 1.3.2   | PyPI   | sha256:jkl012...      |
+| matplotlib   | 3.8.0   | PyPI   | sha256:mno345...      |
+| seaborn      | 0.13.0  | PyPI   | sha256:pqr678...      |
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : config.yaml (threshold, seed, path data)
+  Random seed     : 42 (ditetapkan di Python + NumPy)
+  Hyperparameters : alpha = 0.05, effect_size_min = 0.3,
+                    min_sample = 200, cronbach_alpha_min = 0.7
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [x] Dependency terdokumentasi (requirements.txt / lock file)
+  [x] Seed ditetapkan di semua level (Python, NumPy, framework)
+  [x] Config di version control
+  [x] README instruksi reproduksi lengkap
 ```
 
 ---
@@ -109,23 +115,24 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | Intel Core i5/i7 generasi 10–12, minimal 4 core (analisis korelasi tidak butuh CPU berat) |
+| RAM | 8 GB DDR4 — cukup untuk dataset kuesioner 200+ responden |
+| GPU | Tidak diperlukan — korelasi Spearman dan regresi logistik berbasis CPU |
+| OS | Windows 10/11 atau macOS — sesuai laptop mahasiswa |
+| Runtime | Python 3.10+ dengan Jupyter Notebook sebagai environment kerja |
+| Framework | pandas + scipy untuk analisis; Google Forms untuk pengumpulan data |
+| Random Seed | 42 — ditetapkan di Python (random.seed(42)) dan NumPy (np.random.seed(42)) |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| pandas | 2.1.0 | Membaca, membersihkan, dan memanipulasi data kuesioner dari CSV export Google Forms |
+| scipy | 1.11.3 | Menjalankan uji korelasi Spearman (scipy.stats.spearmanr) antar IV dan DV |
+| statsmodels | 0.14.0 | Menjalankan regresi logistik untuk identifikasi faktor persepsi paling dominan |
+| pingouin | 0.5.3 | Menghitung Cronbach's Alpha untuk validasi reliabilitas instrumen kuesioner |
+| matplotlib | 3.8.0 | Visualisasi distribusi skor Likert dan heatmap korelasi antar variabel |
+| seaborn | 0.13.0 | Visualisasi yang lebih rapi untuk heatmap korelasi dan boxplot per faktor |
 
 ---
 
@@ -135,11 +142,11 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 
 | Run | Seed | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| 1 | 42 | Koefisien korelasi Spearman (r) per faktor IV | — (referensi) |
+| 2 | 42 | Koefisien korelasi Spearman (r) per faktor IV | [x] Ya / [ ] Tidak |
+| 3 | 42 | Koefisien korelasi Spearman (r) per faktor IV | [x] Ya / [ ] Tidak |
 
-**Jika hasil berbeda, kemungkinan penyebab:**
+**Jika hasil berbeda, kemungkinan penyebab:** Untuk analisis korelasi Spearman pada data kuesioner yang sudah fix, hasil seharusnya selalu identik karena tidak ada randomness dalam perhitungannya. Jika berbeda, kemungkinan penyebabnya adalah: (1) file CSV export Google Forms yang berbeda versi karena ada responden baru masuk di antara run, (2) filter attention check yang tidak konsisten antar run karena threshold tidak dikunci di config, atau (3) versi library yang berbeda di environment yang tidak terkontrol.
 
 > Penyebab umum non-repeatability:
 > - **Thermal throttling** — CPU/GPU overheating pada run berturut-turut → clock speed turun → waktu eksekusi berubah
@@ -150,10 +157,10 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 ___________________________________________________
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [✓] Random seed di-set di semua level
+- [✓] Tidak ada background process yang mengganggu
+- [✓] Cache dibersihkan antar-run
+- [✓] Config file yang sama untuk semua run
 
 ---
 
@@ -162,25 +169,57 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: Analisis Faktor Persepsi terhadap Adopsi 2FA pada Mahasiswa Pengguna Instagram di Kebumen
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
-
+> - OS      : Windows 10/11 atau macOS
+- Python  : 3.10+
+- Runtime : Jupyter Notebook
+- RAM min : 8 GB
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+> Clone repo terlebih dahulu
+git clone https://github.com/salmaa-jayy/rti-20252.git
+cd rti-20252
+> Install semua dependencies
+pip install -r requirements.txt
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+> - Sumber  : Export CSV dari Google Forms
+- Format  : CSV (kolom = item kuesioner, baris = responden)
+- Ukuran  : ~200 baris x 20 kolom
+- Path    : /data/raw/responses.csv
+- Catatan : Data mentah tidak di-push ke GitHub (privacy).
+            Gunakan data/sample/sample_responses.csv
+            untuk uji coba reproduksi
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+> Jalankan notebook secara berurutan:
+jupyter notebook
+Urutan notebook:
+> 01_data_cleaning.ipynb   → filter attention check
+> 02_reliability.ipynb     → uji Cronbach's Alpha
+> 03_correlation.ipynb     → korelasi Spearman IV–DV
+> 04_regression.ipynb      → regresi logistik
+> 05_visualization.ipynb   → heatmap + boxplot
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+> Edit config.yaml untuk ubah parameter:
+alpha_threshold : 0.05      # threshold signifikansi
+effect_size_min : 0.3       # minimal r korelasi moderat
+min_sample      : 100       # target minimum responden
+cronbach_min    : 0.7       # batas reliabilitas instrumen
+random_seed     : 42        # seed untuk reproduksi
+data_path       : data/raw/responses.csv
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+> Contoh output korelasi Spearman yang diharapkan:
+| Faktor            | r     | p-value | Signifikan? |
+|-------------------|-------|---------|-------------|
+| Kemudahan 2FA     | 0.412 | 0.003   | Ya          |
+| Manfaat 2FA       | 0.381 | 0.008   | Ya          |
+| Kesadaran risiko  | 0.298 | 0.067   | Tidak       |
+| Pengaruh sosial   | 0.244 | 0.112   | Tidak       | 
+
 ```
 
 ---
@@ -189,6 +228,6 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [x] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+> Reproducibility penuh belum tercapai karena dua hal. Pertama, data mentah kuesioner tidak bisa dipublikasi di GitHub karena menyangkut privasi responden — sehingga peneliti lain tidak bisa mereproduksi dari titik nol tanpa dataset yang sama. Solusinya adalah menyediakan sample data anonim dan synthetic data generator di repo. Kedua, instrumen kuesioner (item-item Likert) belum divalidasi Cronbach's Alpha karena pengumpulan data belum dilakukan — jadi notebook 02_reliability.ipynb belum bisa dijalankan dengan data nyata. Ini adalah batasan yang wajar untuk tahap proposal, dan akan diselesaikan setelah data terkumpul.

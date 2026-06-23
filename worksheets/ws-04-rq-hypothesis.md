@@ -1,4 +1,4 @@
-# WS-04: Research Question & Hypothesis
+ # WS-04: Research Question & Hypothesis
 
 > **Bab 4 — Research Question, Contribution & Hypothesis**
 
@@ -67,34 +67,33 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : ____________________
-
+Gap Statement  : Studi yang ada cuma ngukur "berapa persen" pengguna yang sadar atau tidak, tapi tidak menjelaskan KENAPA mereka tidak menerapkan praktik keamanan kayak 2FA, padahal tanpa tau penyebabnya, rekomendasi edukasi tidak akan tepat sasaran
 Research Question:
-  Tipe         : [ ] Comparison  [ ] Improvement  [ ] Exploratory
-  Formulasi    : ____________________
-  Variabel IV  : ____________________
-  Variabel DV  : ____________________
-  Metrik       : ____________________
-  Dataset      : ____________________
-  Baseline     : ____________________
+  Tipe         : [ ] Comparison  [ ] Improvement  [x] Exploratory
+  Formulasi    : Faktor apa saja yang memengaruhi rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Kebumen?
+  Variabel IV  : Faktor persepsi (kemudahan, manfaat, kesadaran risiko, pengaruh sosial)
+  Variabel DV  : Tingkat adopsi 2FA dan praktik keamanan akun Instagram
+  Metrik       : Skor Likert per faktor, persentase adopsi 2FA, korelasi antar variabel
+  Dataset      : Survei 200+ mahasiswa aktif pengguna Instagram di Kebumen
+  Baseline     : Farida et al. (2024) — 39% adopsi 2FA pada pengguna Instagram Indonesia
 
 Quality Check RQ:
-  [ ] Variabel spesifik
-  [ ] Metrik jelas
-  [ ] Baseline ada
-  [ ] Konteks disebutkan
-  [ ] Memerlukan eksperimen (bukan hanya survei literatur)
+  [x] Variabel spesifik
+  [x] Metrik jelas
+  [x] Baseline ada
+  [x] Konteks disebutkan
+  [x] Memerlukan eksperimen (bukan hanya survei literatur)
 
 Contribution Statement:
-  Apa yang baru diketahui : ____________________
-  Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [ ] Novel approach
-  Gap yang diisi          : ____________________
+  Apa yang baru diketahui : Faktor-faktor spesifik yang jadi penghambat adopsi 2FA pada mahasiswa Indonesia — bukan sekadar angka persentase adopsi
+  Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [x] Novel approach
+  Gap yang diisi          : Method gap — dari instrumen biner ya/tidak ke skala Likert yang bisa nangkep gradasi persepsi pengguna; dan context gap — fokus mahasiswa Kebumen yang belum pernah diteliti
 
 Hypothesis Pair:
-  H₀ : ____________________
-  H₁ : ____________________
-  Threshold              : ____________________
-  Justifikasi threshold  : ____________________
+  H₀ : Tidak ada hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Kebumen
+  H₁ : Terdapat hubungan signifikan antara persepsi kemudahan penggunaan 2FA dengan tingkat adopsinya di kalangan mahasiswa pengguna Instagram Kebumen
+  Threshold              : p-value < 0,05
+  Justifikasi threshold  : Threshold 0,05 adalah standar umum dalam penelitian sosial kuantitatif dan konsisten dengan studi keamanan informasi sejenis (Akraman et al., 2018)
 ```
 
 ---
@@ -103,25 +102,23 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** ____________________________________
-
+**Gap dari WS-03:** Semua studi cuma pakai kuesioner biner (ya/tidak) yang tidak bisa dibedakan "tahu tapi nggak lakuin" vs "beneran nggak tahu" — dan belum ada yang neliti faktor penyebab di balik rendahnya adopsi 2FA khususnya di kalangan mahasiswa
 **RQ versi pertama (tulis bebas):**
-> ___________________________________________________
+> Kenapa mahasiswa pengguna Instagram banyak yang tidak aktifin 2FA padahal mereka tahu fitur itu ada?
 
 **Evaluasi RQ:**
 
 | Komponen | Ada? | Isi |
 |----------|------|-----|
-| Metode spesifik | *Contoh: Ya — CNN vs RF* | |
-| Metrik terukur | | |
-| Baseline | | |
-| Dataset/konteks | | |
+| Metode spesifik | Belum | Perlu ditambah — survei Likert + analisis korelasi |
+| Metrik terukur | Belum | Perlu ditambah — skor per faktor, koefisien korelasi |
+| Baseline | Belum | Perlu ditambah — Farida et al. 2024 (39% adopsi 2FA) |
+| Dataset/konteks | Sebagian | Sudah ada "mahasiswa Instagram" tapi belum ada lokasi spesifik |
 
-**Tipe RQ:** [ ] Comparison / [ ] Improvement / [ ] Exploratory
+**Tipe RQ:** [ ] Comparison / [ ] Improvement / [x] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> ___________________________________________________
-
+> Faktor persepsi apa saja (kemudahan, manfaat, kesadaran risiko, pengaruh sosial) yang secara signifikan berhubungan dengan rendahnya adopsi autentikasi dua faktor (2FA) di kalangan mahasiswa pengguna Instagram di Kebumen, dibandingkan baseline adopsi 39% dari Farida et al. (2024)?
 ---
 
 ## Latihan 2 — Hypothesis Pair
@@ -130,15 +127,14 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | *Contoh: Tidak ada perbedaan signifikan F1-Score antara CNN dan RF pada dataset CIC-MalMem-2022* |
-| H₁ | |
-| Metrik | |
-| Threshold | |
-| Justifikasi threshold | |
+| H₀ | Tidak ada hubungan signifikan antara faktor persepsi kemudahan, manfaat, kesadaran risiko, dan pengaruh sosial dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Kebumen |
+| H₁ | Minimal satu faktor persepsi (kemudahan, manfaat, kesadaran risiko, atau pengaruh sosial) memiliki hubungan signifikan dengan tingkat adopsi 2FA pada mahasiswa pengguna Instagram di Kebumen |
+| Metrik | Koefisien korelasi Spearman / skor regresi logistik per faktor |
+| Threshold | p-value < 0,05 |
+| Justifikasi threshold | Standar konvensional penelitian sosial kuantitatif; digunakan konsisten di studi keamanan informasi sejenis di Indonesia |
 
-**Apakah hipotesis ini falsifiable?** [ ] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? ___________________
-
+**Apakah hipotesis ini falsifiable?** [x] Ya / [ ] Tidak
+> Bagaimana cara membuktikannya salah? Cara membuktikannya salah: Kalau hasil uji statistik menunjukkan p-value ≥ 0,05 untuk semua faktor, berarti H₁ gagal didukung dan H₀ tidak bisa ditolak — artinya faktor persepsi yang diuji tidak terbukti berhubungan dengan adopsi 2FA
 ---
 
 ## Latihan 3 — Rantai Operasionalisasi
@@ -147,15 +143,15 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | *Contoh: Apakah CNN menghasilkan F1-Score lebih tinggi dari RF...* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | |
-| Metric | |
-| Data source | |
-| Analysis method | |
+| RQ | Faktor persepsi apa yang berhubungan dengan rendahnya adopsi 2FA mahasiswa pengguna Instagram di Kebumen? |
+| Variable (IV) | Persepsi kemudahan (perceived ease of use), persepsi manfaat (perceived usefulness), kesadaran risiko, pengaruh sosial |
+| Variable (DV) | Tingkat adopsi 2FA — apakah aktif menggunakan atau tidak, dan seberapa konsisten |
+| Metric | Skor Likert 1–5 per faktor IV; persentase & frekuensi adopsi 2FA sebagai DV; koefisien korelasi Spearman |
+| Data source | Kuesioner online Google Form, 200+ mahasiswa aktif Instagram usia 18–25 tahun di Kebumen |
+| Analysis method | Analisis deskriptif (distribusi frekuensi) + uji korelasi Spearman + regresi logistik untuk identifikasi faktor dominan |
 
-**Apakah rantai lengkap?** [ ] Ya / [ ] Tidak
-> Jika tidak, tahap mana yang perlu direvisi? ______________
+**Apakah rantai lengkap?** [x] Ya / [ ] Tidak
+> Jika tidak, tahap mana yang perlu direvisi? 
 
 ---
 
@@ -163,6 +159,6 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 > Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
 
-**Judul:** _____________________________________________
-**RQ yang diekstrak:** __________________________________
-**Komponen yang hilang:** _______________________________
+**Judul:** Analisis Kesadaran Keamanan Informasi dan Privasi pada Pengguna Media Sosial Instagram (Farida et al., 2024)
+**RQ yang diekstrak:** Seberapa tinggi tingkat kesadaran keamanan informasi dan privasi pengguna Instagram di Indonesia?
+**Komponen yang hilang:** Metode spesifik tidak disebutkan di RQ-nya — cuma bilang "seberapa tinggi" tanpa jelasin pakai instrumen apa dan dibandingkan sama apa. Baseline juga tidak ada, jadi tidak jelas "tinggi" itu relatif terhadap apa. Harusnya RQ-nya lebih ke: "Seberapa tinggi tingkat kesadaran keamanan informasi pengguna Instagram Indonesia diukur menggunakan instrumen X, dibandingkan standar literasi digital minimum Y?" — baru bisa dievaluasi secara ilmiah.

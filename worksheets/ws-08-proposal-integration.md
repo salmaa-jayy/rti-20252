@@ -73,32 +73,44 @@ Jika ada lompatan (section B tidak menjawab pertanyaan section A), red thread pu
 PROPOSAL INTEGRATION CHECKLIST
 
 Koneksi Vertikal (Flow Atas-Bawah):
-  [ ] Problem → Gap: masalah terdokumentasi di literatur
-  [ ] Gap → RQ: pertanyaan menjawab gap spesifik
-  [ ] RQ → Hypothesis: hipotesis memprediksi jawaban
-  [ ] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
-  [ ] Metric → System: komponen sistem menghasilkan/mengukur metrik
-  [ ] System → Experiment: desain eksperimen menggunakan sistem
+  [x] Problem → Gap: masalah terdokumentasi di literatur
+      (Farida et al. 2024 — 39% adopsi 2FA, instrumen biner)
+  [x] Gap → RQ: pertanyaan menjawab gap spesifik
+      (method gap + context gap → RQ faktor persepsi)
+  [x] RQ → Hypothesis: hipotesis memprediksi jawaban
+      (H₁: persepsi kemudahan paling signifikan, p < 0,05)
+  [x] Hypothesis → Metric: metrik mengukur variabel hipotesis
+      (skor Likert per faktor + % adopsi + koefisien korelasi)
+  [x] Metric → System: komponen sistem mengukur metrik
+      (Google Form + Spearman + regresi logistik)
+  [x] System → Experiment: desain eksperimen pakai sistem
+      (kuesioner sebagai instrumen utama eksperimen)
 
 Koneksi Horizontal (Konsistensi):
-  [ ] Istilah sama di semua bagian
-  [ ] Variabel di RQ = variabel di hipotesis = metrik di desain
-  [ ] Scope tidak berubah dari masalah ke eksperimen
+  [x] Istilah sama di semua bagian ("adopsi 2FA", "persepsi kemudahan" konsisten dari RQ
+      sampai desain eksperimen)
+  [x] Variabel di RQ = variabel di hipotesis = metrik di desain (IV: 4 faktor persepsi; DV: adopsi 2FA — konsisten)
+  [x] Scope tidak berubah dari masalah ke eksperimen (mahasiswa pengguna Instagram Kebumen — konsisten)
 
 Cognitive Trap Checklist:
-  [ ] Tidak ada paragraf "promosi" di pendahuluan (hanya data & gap)
-  [ ] Metodologi disesuaikan ke RQ, bukan copy-paste textbook
-  [ ] Timeline sudah ditambah buffer 30-50% dari estimasi awal
-  [ ] Proposal mengakui kemungkinan H0 tidak ditolak (honest uncertainty)
-  [ ] Tidak ada klaim "pasti berhasil" atau "meningkatkan signifikan"
+  [x] Tidak ada paragraf "promosi" di pendahuluan (pendahuluan berbasis data: 88,86 juta pengguna,
+      39% adopsi 2FA dari Farida et al. 2024)
+  [x] Metodologi disesuaikan ke RQ, bukan copy-paste textbook Metodologi disesuaikan ke RQ, bukan copy-paste textbook
+      (Spearman dipilih karena data ordinal, bukan karena
+      "metode umum")
+  [x] Timeline sudah ditambah buffer 30-50% dari estimasi awal (8 fase dengan fase revisi di akhir sebagai buffer)
+  [x] Proposal mengakui kemungkinan H0 tidak ditolak (H₀ dirumuskan eksplisit: tidak ada hubungan
+      signifikan jika p ≥ 0,05)
+  [x] Tidak ada klaim "pasti berhasil" (hasil dirumuskan sebagai "diharapkan" dan
+      "diprediksi", bukan "pasti")
 
 Rubrik Self-Assessment:
 | Kriteria     | 1 (Lemah)                                        | 2 (Cukup)                                     | 3 (Baik)                                           | Skor |
 |------------- |--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|------|
-| Koherensi    | >2 koneksi vertikal terputus                     | 1-2 koneksi lemah, argumen masih bisa diikuti | Semua 6 koneksi terhubung, red thread jelas        |      |
-| Specificity  | Variabel/metrik masih abstrak, tidak ada angka   | Sebagian metrik terdefinisi numerik           | Semua metrik + threshold + unit pengukuran jelas   |      |
-| Feasibility  | Timeline >6 bulan tanpa memperhitungkan sumber   | Timeline 3-6 bulan dengan asumsi tertentu     | Timeline 1-3 bulan realistis dengan rencana detail |      |
-| Rigor        | Baseline tidak jelas atau straw man              | 1-2 baseline dengan justifikasi partial       | 2+ baseline SOTA + justifikasi pemilihan lengkap   |      |
+| Koherensi   | >2 koneksi vertikal terputus | 1-2 koneksi lemah | Semua 6 koneksi terhubung | 3 |
+| Specificity | Variabel abstrak | Sebagian terdefinisi | Semua metrik + threshold jelas | 3 |
+| Feasibility | >6 bulan tanpa sumber | 3-6 bulan dengan asumsi | 1-3 bulan realistis | 2 |
+| Rigor       | Baseline straw man | 1-2 baseline partial | 2+ baseline + justifikasi | 2 |
 ```
 
 ---
@@ -109,13 +121,13 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Contoh: Sistem rekomendasi memiliki akurasi tinggi (RMSE 0.87) tetapi satisfaction score rendah (45/100). Gap antara metrik teknis dan kepuasan pengguna belum diteliti.* |
-| Gap | WS-03 | *Contoh: Tidak ada studi yang mengintegrasikan collaborative filtering dengan user-context signals untuk meningkatkan satisfaction.* |
-| RQ | WS-04 | *Contoh: Apakah penambahan context-aware signals pada collaborative filtering meningkatkan satisfaction score tanpa menurunkan RMSE?* |
-| Hipotesis | WS-04 | *Contoh: H₁: Sistem CF+context menghasilkan satisfaction ≥ 70/100 dengan RMSE ≤ 0.90 dibanding baseline CF murni.* |
-| Variabel & Metrik | WS-05 | *Contoh: IV = jenis sistem (CF vs CF+context); DV = satisfaction score (skala 0-100) + RMSE (regresi).* |
-| Sistem | WS-06 | |
-| Desain Eksperimen | WS-07 | |
+| Problem Statement | WS-02 | Hanya 39% mahasiswa pengguna Instagram mengaktifkan 2FA, namun tidak ada studi yang menjelaskan faktor penyebab spesifiknya — sehingga rekomendasi edukasi keamanan yang ada tidak tepat sasaran. |
+| Gap | WS-03 | Method gap: semua studi pakai instrumen biner ya/tidak yang tidak bisa menangkap gradasi persepsi. Context gap: belum ada studi yang fokus pada mahasiswa lintas jurusan di kota non-metropolitan seperti Kebumen. |
+| RQ | WS-04 | Faktor persepsi apa (kemudahan, manfaat, kesadaran risiko, pengaruh sosial) yang secara signifikan berhubungan dengan rendahnya adopsi 2FA pada mahasiswa pengguna Instagram di Kebumen, diukur dengan Likert dan dianalisis dengan korelasi Spearman? |
+| Hipotesis | WS-04 | H₁: Minimal satu faktor persepsi memiliki hubungan signifikan (p < 0,05) dengan adopsi 2FA, dengan prediksi persepsi kemudahan sebagai faktor paling dominan berdasarkan TAM (Davis, 1989). H₀: Tidak ada hubungan signifikan antara faktor persepsi manapun dengan adopsi 2FA (p ≥ 0,05). |
+| Variabel & Metrik | WS-05 | IV: 4 faktor persepsi (skor Likert 1–5, 14 item); DV: adopsi 2FA (% adopsi + skor konsistensi Likert 1–5); CV: usia & jurusan (nominal). Threshold signifikansi p < 0,05, effect size minimal r ≥ 0,3. |
+| Sistem | WS-06 | Tiga komponen modular: sub-modul kuesioner Likert Blok A–D (IV), modul pengukuran adopsi dikotomis + Likert (DV), modul filter demografis (CV). Setiap komponen dapat dimodifikasi tanpa mengganggu komponen lain. |
+| Desain Eksperimen | WS-07 | Comparison study: kondisi kontrol (baseline Farida et al. 2024, instrumen biner) vs kondisi treatment (instrumen Likert, 200+ mahasiswa Kebumen, 4+ jurusan). Analisis: korelasi Spearman + regresi logistik. Alpha = 0,05. |
 
 ---
 
@@ -125,18 +137,18 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *Contoh: ✅ — gap muncul dari 15 paper Bab 3 yang tidak ada yang mengkombinasikan CF + context untuk satisfaction* | |
-| Gap → RQ | *Contoh: ✅ — RQ langsung menanyakan apakah CF+context meningkatkan satisfaction* | |
-| RQ → Hypothesis | *Contoh: ✅ — H₁ memprediksi satisfaction ≥ 70 dengan threshold RMSE ≤ 0.90* | |
-| Hypothesis → Metric | | |
-| Metric → System | | |
-| System → Experiment | | |
+| Problem → Gap | ✅ | Gap muncul dari 5 paper literatur (WS-03) yang semuanya terbukti menggunakan instrumen biner dan tidak menjawab faktor penyebab rendahnya adopsi 2FA |
+| Gap → RQ | ✅ | RQ langsung menanyakan faktor persepsi spesifik yang menjadi penyebab — menutup method gap dan context gap yang diidentifikasi di WS-03 |
+| RQ → Hypothesis | ✅ | H₁ memprediksi arah jawaban RQ secara spesifik: persepsi kemudahan sebagai faktor paling dominan, dengan threshold p < 0,05 |
+| Hypothesis → Metric | ✅ | Setiap faktor IV di hipotesis punya metrik terdefinisi (skor Likert 1–5); DV diukur dengan % adopsi + skor konsistensi; threshold effect size r ≥ 0,3 sudah ditetapkan |
+| Metric → System | ✅ | Setiap metrik diukur oleh komponen sistem yang spesifik — Blok A–D kuesioner untuk IV, modul adopsi untuk DV, modul demografis untuk CV |
+| System → Experiment | ✅ | Desain eksperimen menggunakan kuesioner sebagai instrumen utama; prosedur pengisian 4 tahap dirancang agar setiap blok sistem berjalan sesuai urutan yang benar |
 
-**Koneksi mana yang paling lemah?** _______________________
+**Koneksi mana yang paling lemah?** Metric → System
 **Bagaimana cara memperkuatnya?**
-> ___________________________________________________
+> Instrumen kuesioner perlu divalidasi terlebih dahulu dengan uji Cronbach's Alpha (target α ≥ 0,7) sebelum digunakan sebagai alat ukur resmi. Tanpa validasi ini, jalur dari metrik ke sistem belum sepenuhnya terjamin mengukur konstruk yang dimaksud
 
-**Konsistensi horizontal — apakah istilah dan scope konsisten?** [ ] Ya / [ ] Tidak
+**Konsistensi horizontal — apakah istilah dan scope konsisten?** [x] Ya / [ ] Tidak
 > Jika tidak, di bagian mana terjadi inkonsistensi? _________
 
 ---
@@ -147,14 +159,14 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *Contoh: 2 — koneksi gap→RQ masih lemah karena gap belum cukup narrow* | |
-| Specificity | *Contoh: 3 — metrik (satisfaction 0-100, RMSE) sudah terdefinisi numerik* | |
-| Feasibility | | |
-| Rigor | | |
+| Koherensi | 3 | Semua 6 koneksi vertikal terhubung dan red thread bisa ditelusuri dari problem (39% adopsi) → gap (instrumen biner tidak cukup) → RQ (faktor persepsi apa?) → hipotesis (kemudahan paling dominan) → metrik (Likert + Spearman) → eksperimen (kuesioner mahasiswa Kebumen) |
+| Specificity | 3  | Semua metrik sudah terdefinisi numerik: skor Likert 1–5 per faktor, % adopsi 2FA, threshold p < 0,05, effect size minimal r ≥ 0,3, target sampel 200+ mahasiswa, Cronbach's Alpha ≥ 0,7 |
+| Feasibility | 2 | Timeline 8 fase realistis untuk tugas kuliah, tapi instrumen belum diuji validitasnya dan pengumpulan 200+ responden lintas jurusan membutuhkan effort penyebaran yang tidak trivial — butuh rencana distribusi yang lebih detail |
+| Rigor | 2 | Baseline utama (Farida et al. 2024) kuat dan relevan dengan justifikasi lengkap; Akraman et al. 2018 sebagai baseline metodologis sekunder. Namun hanya 2 baseline dan belum ada benchmark internasional yang setara — cukup untuk tugas kuliah tapi bisa diperkuat untuk publikasi |
 
-**Skor total:** _____ / 12
+**Skor total:** 10 / 12
 
-**Apakah proposal siap untuk fase eksekusi?** [ ] Ya / [ ] Belum
+**Apakah proposal siap untuk fase eksekusi?** [x] Ya / [ ] Belum
 > Jika belum, apa yang perlu diperbaiki? __________________
 
 ---
@@ -163,8 +175,7 @@ Evaluasi proposal mini menggunakan rubrik.
 
 > Dari seluruh proses WS-01 sampai WS-08, bagian mana yang paling mudah dan paling sulit? Mengapa? Apa yang akan dilakukan berbeda jika mengulang dari awal?
 
-**Bagian termudah:** ____________________________________
-**Bagian tersulit:** ____________________________________
+**Bagian termudah:** WS-01 — Identifikasi distorsi dan paradigma penelitian
+**Bagian tersulit:** WS-05 — Operasionalisasi variabel dan metrik
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
-> ___________________________________________________
+> Dari awal langsung menetapkan satu topik yang spesifik dan tidak ganti-ganti, banyak waktu yang terbuang ketika topik masih terlalu luas di awal. Selain itu, akan langsung mencari minimal 5 jurnal sebelum merumuskan RQ, bukan sesudah karena ternyata gap yang valid hanya bisa ditemukan setelah benar-benar membaca dan memetakan literatur, bukan dari intuisi awal tentang "apa yang belum diteliti."

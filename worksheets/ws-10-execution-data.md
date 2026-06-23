@@ -76,9 +76,15 @@ EXECUTION PLAN
 | 4     | Regresi logistik                | 42   | alpha=0.05, cv=5                   | Planned | ~1 hari | output/logistic_results.csv   |
 | 5     | Robustness check (subsampel)    | 42   | n=150, random subsample            | Planned | ~1 hari | output/robustness_check.csv   |
 | 6     | Robustness check (subsampel)    | 123  | n=150, random subsample            | Planned | ~1 hari | output/robustness_check_2.csv |
+<<<<<<< HEAD
 | 7     | Robustness check (subsampel)    | 999  | n=150, random subsample            | Planned | ~1 hari | output/robustness_check_3.csv 
 
 Jumlah runs per skenario : 1-3 (robustness check 3x)
+=======
+| 7     | Robustness check (subsampel)    | 999  | n=150, random subsample            | Planned | ~1 hari | output/robustness_check_3.csv |
+
+Jumlah runs per skenario : 1–3 (robustness check 3x)
+>>>>>>> 82a1d770a92e7db97acf4f1add74f1ec5ee5078d
 Total runs               : 7
 
 DATA LOG (per run):
@@ -100,6 +106,7 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
 | 1 | Pilot test validasi instrumen Likert | 42 | n=20 responden awal, cronbach_min=0.7 | Planned |
+<<<<<<< HEAD
 | 2 | Pengumpulan data penuh lintas jurusan | 42 | n=200+, 4 jurusan, filter attention check aktif | Planned |
 | 3 | Korelasi Spearman IV–DV (full sample) | 42 | alpha=0.05, effect_size_min=0.3 | Planned |
 | 4 | Regresi logistik faktor dominan | 42 | alpha=0.05, 5-fold cross validation | Planned |
@@ -108,6 +115,15 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 | 7 | Robustness check subsampel run 3 | 999 | n=100, random subsample dari data penuh | Planned |
 
 **Total skenario:** 4 (validasi, pengumpulan, korelasi, regresi) + 1 robustness check
+=======
+| 2 | Pengumpulan data penuh lintas jurusan | 42 | n=100+, 4 jurusan, filter attention check aktif | Planned |
+| 3 | Korelasi Spearman IV–DV (full sample) | 42 | alpha=0.05, effect_size_min=0.3 | Planned |
+| 4 | Regresi logistik faktor dominan | 42 | alpha=0.05, 5-fold cross validation | Planned |
+| 5 | Robustness check subsampel run 1 | 42 | n=150, random subsample dari data penuh | Planned |
+| 6 | Robustness check subsampel run 3 | 999 | n=150, random subsample dari data penuh | Planned |
+
+**Total skenario:** 4(validasi, pengumpulan, korelasi, regresi) +1 robustness check
+>>>>>>> 82a1d770a92e7db97acf4f1add74f1ec5ee5078d
 **Run per skenario:** 1 untuk skenario utama, 3 untuk robustness check
 **Total run keseluruhan:** 7
 
@@ -130,12 +146,17 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 |-------|--------|
 | Seed | 42 |
 | Code version | commit a3f1b2c |
+<<<<<<< HEAD
 | Config file | config.yaml v1.2 |
 
+=======
+| Config file | config.yamlv1.2 |
+>>>>>>> 82a1d770a92e7db97acf4f1add74f1ec5ee5078d
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
+<<<<<<< HEAD
 | Cronbach's Alpha per faktor |  |  |
 | Koefisien korelasi Spearman (r) | | |
 | p-value per faktor | | |
@@ -144,6 +165,18 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 | Skor konsistensi penggunaan 2FA | | |
 
 **Format output:** [x] CSV - dipilih karena mudah dibuka di Excel, kompatibel dengan semua tools analisis, dan bisa di-version control di GitHub
+=======
+| Cronbach's Alpha per faktor | float | 0.0 – 1.0 (target ≥ 0.7) |
+| Koefisien korelasi Spearman (r) | float | -1.0-1.0 |
+| p-value per faktor | float | 0.0 – 1.0 (signifikan jika < 0.05) |
+| % adopsi 2FA | float | 0.0 – 100.0 |
+| Koefisien relasi logistik | float | tidak terbatas |
+| Skor konsistensi pengguna 2FA | float | 1.0 – 5.0 |
+
+
+
+**Format output:** [x] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+>>>>>>> 82a1d770a92e7db97acf4f1add74f1ec5ee5078d
 
 ---
 

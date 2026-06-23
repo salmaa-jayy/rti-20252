@@ -3,7 +3,6 @@
 > **Bab 6 — System Design sebagai Experimental Artifact**
 
 ---
-
 ## Ringkasan Materi
 
 ### Sistem = Instrumen Pengujian, Bukan Produk
@@ -80,25 +79,27 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Faktor persepsi apa (kemudahan, manfaat, kesadaran risiko, pengaruh sosial) yang secara signifikan berhubungan dengan rendahnya adopsi 2FA di kalangan mahasiswa pengguna Instagram di Kebumen?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+|Persepsi kemudahan| IV | Sub-modul kuesioner Blok A (4 item Likert) |Bisa ditambah/kurangi item tanpa ganggu blok lain|
+|Persepsi manfaat 2FA| IV |Sub-modul kuesioner Blok B (4 item Likert)| Bisa diswap jadi pertanyaan skenario tanpa ubah DV |
+|Kesadaran risiko| IV | Sub-modul kuesioner Blok C (3 item Likert) | Bisa dimodifikasi threshold skor tanpa ubah CV |
+|Pengaruh sosial| IV | Sub-modul kuesioner Blok D (3 item Likert) | Bisa dihapus untuk ablation tanpa ganggu IV l |
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [x] Traceability — Setiap komponen bisa ditelusuri ke variabel
+  [x] Variable Isolation — IV bisa diubah tanpa mengubah CV
+  [x] Measurement Integration — Pengukuran DV built-in
+  [x] Reproducibility — Setup bisa direkonstruksi
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : Respons kuesioner Likert 1–5 dari 200 + mahasiswa pengguna Instagram Kebumen
+  Parameter      : 4 faktor IV (kemudahan, manfaat, risiko, pengaruh sosial), threshold p-value < 0.05
+  Output format  : Tabel koefisien korelasi Spearman per
+  faktor + model regresi logistik adopsi 2FA
 ```
 
 ---
@@ -107,15 +108,18 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Faktor persepsi apa yang secara signifikan berhubungan dengan rendahnya adopsi 2FA di kalangan mahasiswa pengguna Instagram di Kebumen?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+| Persepsi kemudahan 2FA | IV | Sub-modul kuesioner Blok A (4 item Likert) | Bisa ditambah/kurangi item tanpa ganggu blok lain |
+| Persepsi manfaat 2FA | IV | Sub-modul kuesioner Blok B (4 item Likert) | Bisa diswap jadi pertanyaan skenario tanpa ubah DV |
+| Kesadaran risiko | IV | Sub-modul kuesioner Blok C (3 item Likert) | Bisa dimodifikasi threshold skor tanpa ubah CV |
+| Pengaruh sosial | IV | Sub-modul kuesioner Blok D (3 item Likert) | Bisa dihapus untuk ablation tanpa ganggu IV lain |
+|Adopsi 2FA| DV | Modul pengukuran adopsi (dikotomis + Likert) | Diukur otomatis dari 2 pertanyaan akhir kuesioner |
+|Usia & jurusan| CV |Modul filter demografis|Dikontrol via segmentasi saat analisis, bukan saat pengumpulan data|
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
+**Apakah semua variabel bisa di-map?** [x] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
 
 ---
@@ -126,10 +130,10 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability |✅| Setiap blok kuesioner (A–D) berlabel eksplisit sesuai variabelnya — Blok A = kemudahan, Blok B = manfaat, dst. Hasil analisis bisa ditelusuri balik ke item spesifik |
+| Modularity |✅|Setiap faktor IV adalah sub-modul terpisah — bisa hapus Blok D (pengaruh sosial) tanpa mengubah Blok A, B, C atau modul DV|
+| Controllability |✅|CV (usia & jurusan) dikontrol di tahap analisis via filter segmentasi, bukan di tahap pengumpulan — jadi IV tetap bisa diukur bebas tanpa terganggu CV|
+| Measurability |⚠️|Cukup terukur, tapi ada risiko ceiling effect kalau responden mayoritas dari mahasiswa TI yang sadarnya sudah tinggi — perlu diversifikasi jurusan|
 
 **Prinsip mana yang paling sulit dipenuhi?** _______________
 **Strategi untuk mengatasinya:**
@@ -146,14 +150,14 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full | ✅semua 4 faktor IV| ✅ | ✅  | Model korelasi lengkap — baseline penuh penelitian ini |
+| – A | ❌ (tanpa kemudahan) | ✅ | ✅ |Cek apakah persepsi kemudahan adalah faktor dominan atau bisa digantikan faktor lain|
+| – B | ✅ | ❌ (tanpa kesadaran risiko) | ✅ |Cek apakah kesadaran risiko berdiri sendiri atau selalu berinteraksi dengan faktor lain|
+| – C | ✅ | ✅ | ❌ (tanpa pengaruh sosial) |Cek apakah adopsi 2FA murni keputusan individu atau dipengaruhi lingkungan sosial|
 
 **Komponen mana yang diprediksi paling berkontribusi?** _____
 **Mengapa?**
-> ___________________________________________________
+> Berdasarkan Technology Acceptance Model (TAM, Davis 1989), persepsi kemudahan adalah prediktor adopsi teknologi yang paling konsisten terbukti signifikan di berbagai studi. Kalau pengguna merasa 2FA itu ribet, mereka tidak akan pakai meskipun tahu manfaat dan risikonya, ini yang paling sering jadi alasan pengguna skip fitur keamanan di aplikasi sehari-hari.
 
 ---
 
@@ -162,5 +166,4 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Kalau sistem dibangun monolitik dulu baru dieksplorasi, kita tidak bisa tahu komponen mana yang sebenernya yang bikin hasil bagus atau jelek — semuanya nyampur jadi satu dan susah diisolasi. Misalnya kalau hasil korelasi ternyata tidak signifikan, kita tidak bisa bedain apakah masalahnya di instrumen kemudahan, di pengukuran DV, atau di cara kontrolnya. Arsitektur modular penting untuk riset justru karena riset itu sifatnya investigatif — kita perlu bisa cabut satu komponen, lihat apa yang berubah, dan dari situ baru bisa narik kesimpulan yang valid. Tanpa modularitas, eksperimen jadi tidak bisa direproduksi dan kontribusinya tidak bisa diklaim dengan jelas.
