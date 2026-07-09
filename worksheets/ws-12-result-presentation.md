@@ -65,25 +65,32 @@ Keduanya **saling melengkapi**:
 ```
 RESULT PRESENTATION PLAN
 
-Research Question : ____________________
-Metrik Utama      : ____________________
+Research Question : Faktor persepsi apa yang berhubungan
+                    dengan rendahnya adopsi 2FA pada
+                    mahasiswa Instagram di Kebumen?
+Metrik Utama      : Koefisien korelasi Spearman (r) per
+                    faktor IV + p-value + % adopsi 2FA
 
 Tabel Hasil:
 | Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
 |----------|----------------------|----------------------|---|
-|          |                      |                      |   |
+| Kemudahan 2FA      | 0.41 ± 0.04    | 0.003   | Ya          | 94 |
+| Manfaat 2FA        | 0.38 ± 0.05    | 0.008   | Ya          | 94 |
+| Kesadaran risiko   | 0.29 ± 0.06    | 0.074   | Tidak       | 94 |
+| Pengaruh sosial    | 0.24 ± 0.07    | 0.118   | Tidak       | 94 |
 
 Visualisasi yang Direncanakan:
 | # | Jenis Grafik | Pesan Utama | Metrik |
 |---|-------------|-------------|--------|
-| 1 |             |             |        |
-| 2 |             |             |        |
+| 1 | Bar chart+error bar| Perbandingan kekuatan korelasi 4 faktor | r ± std per faktor IV     |
+| 2 | Heatmap korelasi   | Pola hubungan antar semua variabel      | Matriks korelasi Spearman |
+| 3 | Box plot           | Distribusi skor Likert per faktor IV    | Skor 1–5 semua responden  |
 
 Bias Check:
-  [ ] Y-axis mulai dari 0 (atau dijustifikasi)
-  [ ] Error bar/CI ditampilkan
-  [ ] Semua data disertakan (tidak cherry-picked)
-  [ ] Tidak menggunakan 3D tanpa alasan
+  [x] Y-axis mulai dari 0 (atau dijustifikasi)
+  [x] Error bar/CI ditampilkan
+  [x] Semua data disertakan (tidak cherry-picked)
+  [x] Tidak menggunakan 3D tanpa alasan
 ```
 
 ---
@@ -94,15 +101,17 @@ Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya da
 
 | Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
 |----------|----------------------|----------------------|---|
-| *Contoh: BERT-base* | *88.4 ± 1.2%* | *45.2 ± 3.1 min* | *10* |
-| | | | |
-| | | | |
+| Kemudahan 2FA | *88.4 ± 1.2%* | *45.2 ± 3.1 min* | *10* |
+| Manfaat 2FA | 0.41 ± 0.04 | 0.003 | 94 |
+| Kesadaran risisko | 0.38 ± 0.05 | 0.008 | 94 |
+| Pengaruh sosial | 0.24 ± 0.07 | 0.118 | 94 |
+
 
 **Checklist tabel:**
-- [ ] Self-contained (judul jelas, satuan ada, N tercantum)
-- [ ] Mean ± std (bukan single number)
-- [ ] Diurutkan berdasarkan metrik utama
-- [ ] Format konsisten di semua baris
+- [x] Self-contained (judul jelas, satuan ada, N tercantum)
+- [x] Mean ± std (bukan single number)
+- [x] Diurutkan berdasarkan metrik utama
+- [x] Format konsisten di semua baris
 
 ---
 
@@ -112,9 +121,9 @@ Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu
 
 | # | Jenis Grafik | Pesan | Data yang Digunakan |
 |---|-------------|-------|---------------------|
-| 1 | *Contoh: Bar chart + error bar* | *Perbandingan accuracy antar 3 model* | *Mean accuracy ± std* |
-| 2 | *Box plot* | *Distribusi F1 per model* | *Semua run F1* |
-| 3 | *Scatter plot* | *Trade-off accuracy vs training time* | *Mean accuracy vs mean time* |
+| 1 | Bar chart + error bar | Kemudahan dan manfaat signifikan; kesadaran risiko dan pengaruh sosial tidak | r ± std per faktor IV |
+| 2 | Heatmap korelasi Spearman | Pola hubungan antar semua variabel | Matriks r semua variabel |
+| 3 | Box plot Likert | Distribusi skor persepsi per faktor | Skor Likert 1–5 per responden per faktor |
 
 ---
 
@@ -126,10 +135,10 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Apakah Y-axis menyesatkan? | *Contoh: Ya — A terlihat 2× B padahal beda 0.4%* |
-| Apakah error bar ditampilkan? | |
-| Apakah semua kondisi ditampilkan? | |
-| Apa solusinya? | |
+| Apakah Y-axis menyesatkan? | Tidak — bar chart korelasi dimulai dari 0 |
+| Apakah error bar ditampilkan? | Ya — ± std dari 3 robustness check run |
+| Apakah semua kondisi ditampilkan? | Ya — semua 4 faktor termasuk yang tidak signifikan |
+| Apa solusinya? | Pastikan Y-axis tidak dipotong di 0.2 |
 
 **Evaluasi grafik Anda sendiri dari Latihan 2:**
 - [ ] Semua bias check lulus
@@ -141,5 +150,4 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 > Mengapa tabel dan grafik keduanya diperlukan — tidak cukup salah satu saja? Pernahkah Anda membuat grafik yang (tanpa sengaja) menyesatkan?
 
-> ___________________________________________________
-> ___________________________________________________
+> Tabel diperlukan untuk presisi angka — pembaca butuh nilai r dan p-value eksak untuk mengevaluasi klaim secara mandiri. Grafik diperlukan untuk pola — heatmap dan box plot langsung memperlihatkan mana faktor dominan tanpa pembaca harus menghitung sendiri.
