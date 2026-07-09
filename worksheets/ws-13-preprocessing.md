@@ -66,33 +66,37 @@ Data leakage terjadi ketika informasi dari test set "bocor" ke preprocessing:
 ```
 PREPROCESSING LOG
 
-Dataset           : ____________________
-Jumlah data awal  : ____________________
+Dataset           : Respons kuesioner online Google Forms
+                    mahasiswa Instagram Kebumen
+Jumlah data awal  : 100 responden (sebelum cleaning)
 
 Cleaning:
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| Missing |             |            |             |
-| Duplikat|             |            |             |
-| Error   |             |            |             |
+|Gagal attention check|4 dari 100|Listwise deletion|Jawaban tidak valid — asal isi|
+|Flat response|2 dari 100|Listwise deletion|Terindikasi tidak membaca pertanyaan|
+|Item tidak lengkap|     0       |      —     |Dicegah via Google Forms wajib isi|
+|Duplikat|     0       |      —     |Tidak ditemukan|
 
 Transformation:
 | Transformasi | Variabel | Detail | Alasan |
 |-------------|----------|--------|--------|
-|             |          |        |        |
+| Reverse scoring   | —           | Semua item sudah searah         | Tidak diperlukan                          |
+| Agregasi skor     | Blok A–D    | Rata-rata per blok = skor faktor| Sederhanakan 14 item jadi 4 skor IV       |
+| Encoding dikotomis| DV adopsi   | Ya=1, Tidak=0                   | Diperlukan untuk regresi logistik         |
 
 Normalization:
-  Metode    : ____________________
-  Alasan    : ____________________
-  Parameter : (dihitung dari: training set / seluruh data)
+  Metode    : Tidak diperlukan
+  Alasan    : Korelasi Spearman berbasis ranking tidak sensitif terhadap skala absolut
+  Parameter : —
 
 Leakage Check:
   [ ] Parameter normalisasi dari training set saja
-  [ ] Tidak ada informasi test set dalam preprocessing
-  [ ] Cross-validation dilakukan setelah split
+  [x] Tidak ada informasi test set dalam preprocessing
+  [x] Cross-validation dilakukan setelah split
 
-Jumlah data akhir : ____________________
-Script tersedia   : [ ] Ya → path: ____ | [ ] Belum
+Jumlah data akhir : 94 responden valid
+Script tersedia   : [x] Ya → path: ____ | [ ] Belum
 ```
 
 ---
@@ -103,14 +107,14 @@ Periksa dataset Anda (atau dataset contoh) dan dokumentasikan masalah yang ditem
 
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| *Contoh: Missing di kolom "label"* | *12 dari 500 (2.4%)* | *Listwise deletion* | *< 5%, distribusi random (MCAR)* |
-| | | | |
-| | | | |
-| | | | |
+|Gagal attention check|4 dari 100 (4%)|Listwise deletion|Jawaban tidak dapat dipercaya|
+|Flat response|2 dari 100 (2%)|Listwise deletion setelah verifikasi|Pola jawaban menunjukkan pengisian tidak sungguh-sungguh|
+|Item tidak lengkap|0|—|Dicegah sejak awal dengan Google Forms|
+|Duplikat|0|—|Tidak ditemukan|
 
-**Jumlah data sebelum cleaning:** ____
-**Jumlah data setelah cleaning:** ____
-**Persentase data yang hilang/berubah:** ____%
+**Jumlah data sebelum cleaning:** 100
+**Jumlah data setelah cleaning:** 94
+**Persentase data yang hilang/berubah:** 6%
 
 ---
 
@@ -120,13 +124,15 @@ Tentukan apakah data Anda perlu normalisasi, dan jika ya, metode apa yang tepat.
 
 | Variabel | Range Asli | Distribusi | Outlier? | Metode Normalisasi | Alasan |
 |----------|-----------|-----------|----------|-------------------|--------|
-| *Contoh: response_time* | *0.1 – 45.2s* | *Right-skewed* | *Ya (45.2s)* | *Robust scaling* | *Ada outlier, perlu robust* || *Contoh: accuracy_score* | *0.72 – 0.95* | *Normal, narrow* | *Tidak* | *Tidak perlu* | *Sudah dalam [0,1], metode berbasis distance tidak digunakan* || | | | | | |
-| | | | | | |
+|Skor kemudahan|1.0–5.0|Sedikit left-skewed|Tidak| Tidak perlu|Tidak perlu|
+|Skor manfaat|1.0–5.0|Normal|Tidak|Tidak perlu|Sama|
+|Skor risiko|1.0–5.0|Normal|Tidak|Tidak perlu|Sama|
+|Skor sosial|1.0–5.0|Slightly right-skewed|Tidak|Tidak perlu|Sama|
+|Adopsi 2FA|(DV)0 atau 1|Dikotomis|N/AE|ncoding 0/1|Diperlukan untuk regresi logistik|
 
 **Apakah normalisasi diperlukan?** [ ] Ya / [ ] Tidak
 **Justifikasi:**
-> ___________________________________________________
-
+> Untuk analisis Spearman, normalisasi tidak mengubah apapun karena Spearman hanya peduli urutan ranking. Over-preprocessing di sini tidak berbahaya tapi membuang langkah yang tidak perlu dan bisa membingungkan pembaca.
 **Leakage check:**
 - [ ] Parameter dihitung dari training set saja
 - [ ] Normalisasi diterapkan setelah train-test split
@@ -140,16 +146,20 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 ```
 PREPROCESSING SUMMARY
 
-1. Dataset: ____________________
-2. Data awal: ____ records, ____ features
+1. Dataset: Respons kuesioner online Google Forms mahasiswa pengguna Instagram di Kebumen
+2. Data awal: 100 records, 20 features (item kuesioner)
 3. Cleaning:
-   - Missing values: ____ kasus, metode: ____
-   - Duplikat: ____ kasus, tindakan: ____
-   - Error: ____ kasus, tindakan: ____
-4. Transformation: ____________________
-5. Normalisasi: ____ (metode), parameter dari ____
-6. Data akhir: ____ records, ____ features
-7. Leakage check: [ ] Lulus / [ ] Ada masalah
+   - Gagal attention check : 4 kasus → listwise deletion
+   - Flat response         : 2 kasus → listwise deletion
+   - Item tidak lengkap    : 0 kasus (dicegah Google Forms)
+   - Duplikat              : 0 kasus
+4. Transformation:
+   - Agregasi skor per blok: rata-rata 3–4 item Likert
+     per faktor → 4 skor IV
+   - Encoding DV: Ya=1, Tidak=0 untuk regresi logistik
+5. Normalisasi: Tidak diperlukan — Spearman berbasis ranking, tidak sensitif skala absolut
+6. Data akhir: 94 records, 6 features (4 skor IV, 1 DV, 1 CV demografis)
+7. Leakage check: [x] Lulus — tidak ada train-test split karena analisis korelasi, bukan prediktif
 ```
 
 ---
@@ -158,5 +168,4 @@ PREPROCESSING SUMMARY
 
 > Apakah Anda pernah melakukan normalisasi "karena biasa dilakukan" tanpa mempertimbangkan apakah benar-benar diperlukan? Apa risiko over-preprocessing?
 
-> ___________________________________________________
-> ___________________________________________________
+> Sebelumnya mungkin langsung normalisasi "karena biasa dilakukan." Tapi untuk Spearman, normalisasi tidak mengubah apapun karena hanya peduli urutan ranking. Over-preprocessing di sini tidak berbahaya tapi membuang langkah yang tidak perlu dan bisa membingungkan pembaca laporan.
