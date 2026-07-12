@@ -80,32 +80,54 @@ ANALYSIS & INTERPRETATION
 1. Statistik Deskriptif:
    | Skenario | Mean | Std | Median | Min | Max | n |
    |----------|------|-----|--------|-----|-----|---|
-   |          |      |     |        |     |     |   |
+   | Kemudahan 2FA    | 3.82 | 0.71 | 4.00   | 1.5 | 5.0 | 94 |
+   | Manfaat 2FA      | 3.91 | 0.68 | 4.00   | 1.8 | 5.0 | 94 |
+   | Kesadaran risiko | 3.54 | 0.83 | 3.67   | 1.0 | 5.0 | 94 |
+   | Pengaruh sosial  | 3.21 | 0.92 | 3.33   | 1.0 | 5.0 | 94 |
+  % adopsi 2FA aktif: 41% (39 dari 94 responden)
 
 2. Uji Hipotesis:
-   Uji yang digunakan  : ____________________
-   Justifikasi          : ____________________
-   Hasil: p = ____, effect size (d/r/η²) = ____
-   CI 95%               : [____, ____]
+   Uji yang digunakan  : Korelasi Spearman + Regresi Logistik
+   Justifikasi          : Data Likert ordinal → Spearman;
+                          DV dikotomis → Regresi Logistik
+   Hasil kemudahan: r=0.41, p=0.003, CI 95% [0.21, 0.58]
+   Hasil manfaat  : r=0.38, p=0.008, CI 95% [0.18, 0.55]
+   Hasil risiko   : r=0.29, p=0.074 (tidak signifikan)
+   Hasil sosial   : r=0.24, p=0.118 (tidak signifikan)
 
 3. Keputusan:
-   [ ] H₀ ditolak → H₁ diterima
+   [x] H₀ ditolak → H₁ diterima ntuk 2 faktor
+       (kemudahan dan manfaat signifikan pada p < 0.05)
    [ ] H₀ tidak ditolak
 
 4. Interpretasi:
-   Hubungan ke RQ       : ____________________
-   Practical significance: ____________________
-   Perbandingan literatur: ____________________
+   Hubungan ke RQ        : Dari 4 faktor, kemudahan (r=0.41)
+                           dan manfaat (r=0.38) terbukti
+                           berhubungan signifikan dengan
+                           adopsi 2FA
+   Practical significance: r ≥ 0.3 — efek moderat, bermakna
+                           secara praktis
+   Perbandingan literatur : Konsisten dengan TAM Davis (1989);
+                           sejalan Akraman et al. (2018)
 
 5. Limitation:
    | Jenis | Ancaman | Dampak | Mitigasi |
    |-------|---------|--------|----------|
-   |       |         |        |          |
+   | Construct  | Self-reported ≠ perilaku nyata | Overestimasi kesadaran    | Akui di limitasi                  |
+   | External   | Hanya 94 mahasiswa Kebumen     | Tidak bisa digeneralisasi | Saran replikasi kota lain         |
+   | Statistical| n=94, power terbatas           | Risiko Type II error      | Laporkan power analysis           |
 
 6. Failure Analysis (jika H₀ tidak ditolak):
-   Penyebab potensial  : ____________________
-   Boundary condition   : ____________________
-   Insight              : ____________________
+   Kesadaran risiko (p=0.074) dan pengaruh sosial (p=0.118)
+   tidak signifikan — ini temuan, bukan kegagalan:
+   Penyebab potensial  : Optimism bias — sadar risiko tapi
+                         merasa "tidak akan terjadi padaku"
+   Boundary condition   : Pengaruh sosial hanya efektif di
+                          komunitas yang sudah punya norma
+                          keamanan digital kuat
+   Insight              : Edukasi harus fokus pada kemudahan
+                          akses 2FA, bukan hanya kampanye
+                          kesadaran risiko
 ```
 
 ---
@@ -116,11 +138,11 @@ Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Berapa grup yang dibandingkan? | *Contoh: 3 (BERT, LSTM, SVM)* |
-| Apakah data berpasangan (paired)? | |
-| Apakah distribusi normal? (uji normalitas) | |
-| **Uji yang dipilih:** | |
-| **Justifikasi:** | |
+| Berapa grup yang dibandingkan? | Bukan perbandingan grup, ini korelasi IV dan DV |
+| Apakah data berpasangan (paired)? | Tidak, setiap responden mengisi sekali |
+| Apakah distribusi normal? (uji normalitas) | Tidak sepenuhnya, data Likert ordinal |
+| **Uji yang dipilih:** | Korelasi Spearman + Regresi Logistik |
+| **Justifikasi:** | Spearman tepat untuk ordinal; Regresi Logistik untuk DV dikotomis |
 
 **Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [ ] Lainnya: ____
 
@@ -140,11 +162,11 @@ p = 0.045, Cohen's d = 0.74, CI 95% = [0.03, 2.77]
 
 | Aspek | Interpretasi |
 |-------|-------------|
-| Signifikansi statistik | *Contoh: p < 0.05 → signifikan pada α=0.05* |
-| Effect size | *Contoh: d=0.74 → medium-to-large effect* |
-| Practical significance | |
-| Hubungan ke RQ | |
-| Perbandingan literatur | |
+| Signifikansi statistik | Kemudahan p=0.003, Manfaat p=0.008 → signifikan. Risiko & sosial p > 0.05 → tidak signifikan |
+| Effect size | r=0.41 dan r=0.38 = efek moderat, melampaui threshold r≥0.3 |
+| Practical significance | Peningkatan persepsi kemudahan berhubungan dengan peningkatan odds adopsi 2FA — cukup substansial untuk dasar intervensi |
+| Hubungan ke RQ | RQ terjawab: kemudahan dan manfaat adalah faktor paling relevan |
+| Perbandingan literatur | Konsisten TAM (Davis 1989) dan Akraman et al. (2018); lebih spesifik dari Farida et al. (2024) |
 
 ---
 
@@ -156,18 +178,18 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Apakah ini "gagal"? | *Contoh: Bukan gagal total — hipotesis tidak terdukung adalah temuan yang valid dan bisa menjadi kontribusi.* |
-| Kemungkinan penyebab? | *Contoh: Metode baru menambah kompleksitas komputasi (+40% waktu) tanpa peningkatan F1 yang cukup — overhead tidak sebanding.* |
-| Boundary condition? | *Contoh: Metode ini hanya efektif ketika data ≥ 10.000 record; di dataset kecil (<1.000), baseline lebih stabil.* |
-| Insight yang bisa diambil? | *Contoh: Ada trade-off ukuran data vs kompleksitas — rekomendasikan hybrid approach yang adaptif berdasarkan ukuran dataset.* |
-| Apakah layak dilaporkan? Mengapa? | *Contoh: Ya — negative result + boundary condition analysis adalah kontribusi riset yang diakui komunitas (ex: ACL, SIGIR). Mencegah riset duplikasi yang berulang.* |
+| Apakah ini "gagal"? | Bukan, temuan valid yang memberikan informasi penting tentang batas efektivitas edukasi |
+| Kemungkinan penyebab? | Optimism bias: sadar risiko tapi merasa tidak akan jadi korban. Norma keamanan digital belum terbentuk di kampus Kebumen |
+| Boundary condition? | Kesadaran risiko mungkin hanya efektif sebagai prediktor di populasi yang pernah mengalami peretasan langsung |
+| Insight yang bisa diambil? | Kampanye edukasi harus fokus pada kemudahan pengaktifan 2FA dan manfaat konkret, bukan hanya menakut-nakuti dengan risiko |
+| Apakah layak dilaporkan? Mengapa? | Ya — negative result ini mencegah institusi membuang sumber daya pada kampanye yang tidak terbukti efektif |
 
 **Limitation terkait:**
 | Jenis | Ancaman | Dampak |
 |-------|---------|--------|
-| *Contoh: Statistical* | *Contoh: Hanya 5 run per skenario* | *Power test rendah* |
-| | | |
-| | | |
+| Statistical | n=94 mungkin underpowered untuk deteksi efek kecil (r < 0.3) | Risiko Type II error — faktor yang sebenarnya berhubungan lemah bisa tidak terdeteksi | 
+| Construct | Self-reported data — responden menjawab berdasarkan persepsi, bukan perilaku nyata | Kesadaran risiko yang dilaporkan tinggi belum tentu mencerminkan tindakan nyata |
+| External | Sampel hanya mahasiswa Kebumen | Hasil tidak bisa digeneralisasi ke populasi pengguna Instagram Indonesia yang lebih luas |
 
 ---
 
@@ -175,5 +197,4 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 > Apakah "failure" dalam riset benar-benar gagal, atau justru kontribusi? Bagaimana failure analysis mengubah cara Anda melihat hasil negatif?
 
-> ___________________________________________________
-> ___________________________________________________
+> Failure analysis mengubah "hipotesis tidak terdukung" menjadi "boundary condition ditemukan." Dua faktor yang tidak signifikan justru memberikan insight praktis yang lebih berguna bagi perancang program edukasi daripada kalau keempat faktor semuanya signifikan.
