@@ -1,42 +1,29 @@
-# [EXAMPLE] JWKS Flooding — Penelitian Mitigasi JWKS Endpoint Flooding
+# 09-docs
 
-**Judul:** Performance and Security Evaluation of Mitigating JWKS Endpoint Flooding on Microservices Gateway Using Redis-PostgreSQL Hybrid Caching
+Dokumen perencanaan & panduan kerja penelitian.
 
-**Target publikasi:** Sinta 2 (Jurnal RESTI/Telematika) atau Scopus Q3-Q4
+## Isi
 
-## Ringkasan
+- [rencana-penelitian.md](rencana-penelitian.md) — **indeks utama**, ringkasan topik & roadmap 5 tahap
+- [ws-01-distorsi-paradigma.md](ws-01-distorsi-paradigma.md) — distorsi & paradigma penelitian (selesai)
+- [ws-02-problem-statement.md](ws-02-problem-statement.md) — problem statement builder (selesai)
+- [ws-03-literature-gap.md](ws-03-literature-gap.md) — literature mapping & gap (selesai)
+- [ws-04-rq-hypothesis.md](ws-04-rq-hypothesis.md) — RQ, kontribusi, hipotesis (selesai)
+- [ws-05-variabel-metrik.md](ws-05-variabel-metrik.md) — definisi variabel & metrik (selesai)
+- [ws-06-system-experiment.md](ws-06-system-experiment.md) — mapping RQ ke arsitektur sistem (selesai)
+- [ws-07-experiment-design.md](ws-07-experiment-design.md) — desain eksperimen lengkap (selesai)
+- [ws-08-proposal-integration.md](ws-08-proposal-integration.md) — integration checklist (selesai)
+- [ws-09-experiment-setup.md](ws-09-experiment-setup.md) — dokumentasi setup eksperimen (selesai)
+- [ws-10-execution-plan.md](ws-10-execution-plan.md) — execution plan & data log (selesai)
+- [ws-11-data-validation.md](ws-11-data-validation.md) — data validation & integrity (selesai)
+- [ws-12-result-presentation.md](ws-12-result-presentation.md) — result presentation & visualization (selesai)
+- [ws-13-preprocessing.md](ws-13-preprocessing.md) — data preprocessing (selesai)
+- [ws-14-analysis-interpretation.md](ws-14-analysis-interpretation.md) — analysis, interpretation & failure analysis (selesai)
+- [ws-15-scientific-writing.md](ws-15-scientific-writing.md) — scientific writing (selesai)
+- [ws-16-presentation-defense.md](ws-16-presentation-defense.md) — presentation & defense (selesai)
 
-Penelitian ini mengevaluasi mitigasi celah keamanan **JWKS Endpoint Flooding** (mirip CVE-2026-48524) — di mana penyerang membanjiri API Gateway dengan JWT ber-`kid` (Key ID) acak sehingga resolver JWKS melakukan kueri tak terbatas ke Identity Service/database, menyebabkan resource exhaustion. Solusi yang diuji adalah skema **Redis-PostgreSQL Hybrid Caching** (positive & negative cache) dengan rate-limiting pada lookup kunci, diimplementasikan pada API Gateway berbasis Go (Echo).
+Deliverable konkret tiap tahap (proposal, data, hasil, naskah) disimpan di folder bernomor terkait (lihat [README utama](../README.md)).
 
-Detail lengkap topik & roadmap: [09-docs/rencana-penelitian.md](09-docs/rencana-penelitian.md)
+#Author
 
-## Struktur Direktori
-
-| Folder | Isi |
-|---|---|
-| [00-admin/](00-admin/) | Administrasi penelitian (jadwal, korespondensi) |
-| [01-proposal/](01-proposal/) | Proposal penelitian |
-| [02-literatur/](02-literatur/) | Referensi & paper terkait (Tinjauan Pustaka) |
-| [03-teori/](03-teori/) | Arsitektur & desain sistem (Tahap 1) |
-| [04-data/](04-data/) | Data mentah hasil pengujian k6 & metrik container |
-| [05-kode/](05-kode/) | Source code: API Gateway (Go) & skrip k6 (Tahap 2 & 3) |
-| [06-output/](06-output/) | Statistik & visualisasi hasil pengujian (Tahap 4) |
-| [07-manuskrip/](07-manuskrip/) | Draf naskah jurnal (Tahap 5) |
-| [08-laporan/](08-laporan/) | Laporan progres/akhir penelitian |
-| [09-docs/](09-docs/) | Dokumen perencanaan & roadmap tahap-tahap penelitian |
-
-## Status Tahapan
-
-- [x] **Tahap 1** — Perancangan Arsitektur & Skema Database — *Selesai* ([detail](09-docs/tahap-1-arsitektur-dan-skema-database.md))
-- [x] **Tahap 2** — Implementasi API Gateway (Go) — *Selesai* ([detail](09-docs/tahap-2-implementasi-gateway.md))
-- [x] **Tahap 3** — Skrip Pengujian k6 (Legitimate vs Attack Traffic) — *Selesai* ([detail](09-docs/tahap-3-pengujian-k6.md))
-- [x] **Tahap 4** — Ekstraksi Data & Visualisasi — *Selesai* ([detail](09-docs/tahap-4-analisis-data.md))
-- [ ] **Tahap 5** — Draf Paper Jurnal — *Sedang berjalan* ([detail](09-docs/tahap-5-draf-paper.md))
-
-## Laporan Penelitian
-
-Laporan penelitian komprehensif (ringkasan eksekutif, metodologi per tahap, hasil, kendala, kesimpulan): [08-laporan/laporan-penelitian.md](08-laporan/laporan-penelitian.md)
-
-## Author
-
-Helmi Bahar
+SALMA ZAIDAH
