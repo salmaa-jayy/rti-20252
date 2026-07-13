@@ -5,15 +5,25 @@ Dokumen perencanaan & panduan kerja penelitian.
 ## Isi
 
 - [rencana-penelitian.md](rencana-penelitian.md) — **indeks utama**, ringkasan topik & roadmap 5 tahap
-- [tahap-1-arsitektur-dan-skema-database.md](tahap-1-arsitektur-dan-skema-database.md) — arsitektur & skema DB (selesai)
-- [tahap-2-implementasi-gateway.md](tahap-2-implementasi-gateway.md) — rencana implementasi Gateway (Go)
-- [tahap-3-pengujian-k6.md](tahap-3-pengujian-k6.md) — rencana skrip pengujian k6
-- [tahap-4-analisis-data.md](tahap-4-analisis-data.md) — rencana ekstraksi data & visualisasi
-- [tahap-5-draf-paper.md](tahap-5-draf-paper.md) — rencana struktur draf paper
-- [archive/promt.md](archive/promt.md) — *(arsip)* prompt awal asisten riset, sudah dikonsolidasikan ke [.ai/research-context.md](../.ai/research-context.md)
+- [ws-01-distorsi-paradigma.md](ws-01-distorsi-paradigma.md) — distorsi & paradigma penelitian (selesai)
+- [ws-02-problem-statement.md](ws-02-problem-statement.md) — problem statement builder (selesai)
+- [ws-03-literature-gap.md](ws-03-literature-gap.md) — literature mapping & gap (selesai)
+- [ws-04-rq-hypothesis.md](ws-04-rq-hypothesis.md) — RQ, kontribusi, hipotesis (selesai)
+- [ws-05-variabel-metrik.md](ws-05-variabel-metrik.md) — definisi variabel & metrik (selesai)
+- [ws-06-system-experiment.md](ws-06-system-experiment.md) — mapping RQ ke arsitektur sistem (selesai)
+- [ws-07-experiment-design.md](ws-07-experiment-design.md) — desain eksperimen lengkap (selesai)
+- [ws-08-proposal-integration.md](ws-08-proposal-integration.md) — integration checklist (selesai)
+- [ws-09-experiment-setup.md](ws-09-experiment-setup.md) — dokumentasi setup eksperimen (selesai)
+- [ws-10-execution-plan.md](ws-10-execution-plan.md) — execution plan & data log (selesai)
+- [ws-11-data-validation.md](ws-11-data-validation.md) — data validation & integrity (selesai)
+- [ws-12-result-presentation.md](ws-12-result-presentation.md) — result presentation & visualization (selesai)
+- [ws-13-preprocessing.md](ws-13-preprocessing.md) — data preprocessing (selesai)
+- [ws-14-analysis-interpretation.md](ws-14-analysis-interpretation.md) — analysis, interpretation & failure analysis (selesai)
+- [ws-15-scientific-writing.md](ws-15-scientific-writing.md) — scientific writing (selesai)
+- [ws-16-presentation-defense.md](ws-16-presentation-defense.md) — presentation & defense (selesai)
 
-Deliverable konkret tiap tahap (kode, data, hasil, naskah) disimpan di folder bernomor terkait (lihat [README utama](../README.md)).
+Deliverable konkret tiap tahap (proposal, data, hasil, naskah) disimpan di folder bernomor terkait (lihat [README utama](../README.md)).
 
-## Knowledge & Instruksi AI
+#Author
 
-Peran/persona AI, ringkasan penelitian, status roadmap, dan konvensi folder kini dikonsolidasikan di [.ai/](../.ai/) (dimuat otomatis oleh Claude Code via [CLAUDE.md](../CLAUDE.md) di root).
+SALMA ZAIDAH
