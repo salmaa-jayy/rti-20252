@@ -1,33 +1,40 @@
 # Jadwal & Log Pelaksanaan Penelitian
 
-Catatan kronologis pelaksanaan tiap tahap (sumber: riwayat commit git & dokumen `09-docs/tahap-N-*.md`). Tanggal mengikuti `git log`.
+Catatan kronologis pelaksanaan tiap tahap (sumber: riwayat
+commit git & dokumen `09-docs/ws-*.md`).
+Tanggal mengikuti `git log`.
 
 ## Log Pelaksanaan
 
 | Tanggal | Tahap | Aktivitas | Referensi |
-|---|---|---|---|
-| 2026-06-12 s.d. 2026-06-13 (commit 01:05) | Tahap 1 & 2 | Perancangan arsitektur/skema database; implementasi API Gateway Go (Echo) — clean architecture, migrasi Sqitch, seed script, docker-compose, verifikasi end-to-end (`CACHE_MODE=none`/`hybrid`, fail-closed/fail-open) | [09-docs/tahap-1-arsitektur-dan-skema-database.md](../09-docs/tahap-1-arsitektur-dan-skema-database.md), [09-docs/tahap-2-implementasi-gateway.md](../09-docs/tahap-2-implementasi-gateway.md) |
-| 2026-06-13 01:05 | Tahap 3 | Implementasi skrip k6 (`legitimate.js`, `attack.js`, `mixed.js`), runner & monitor resource | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md) |
-| 2026-06-12 18:05–18:59 (≈54 menit) | Tahap 3 | Eksekusi matrix penuh 50 run (2 `CACHE_MODE` × 5 `traffic_variant` × 5 replikasi), seluruhnya `k6_exit_code = 0` | commit "Mark Tahap 3 complete after running full 50-run k6 matrix" (2026-06-13 02:00) |
-| 2026-06-13 07:41 | Tahap 4 | Pipeline analisis Python (`run_all.py`), 6 tabel CSV + 5 figure PNG, dokumen Tahap 4 diperbarui ke status Selesai | [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [06-output/](../06-output/) |
-| 2026-06-13 | Tahap 5 | Draf konten naskah (8 bagian) di `07-manuskrip/`; pelengkapan `01-proposal/`, `02-literatur/`, `03-teori/`, dan laporan penelitian `08-laporan/` | [09-docs/tahap-5-draf-paper.md](../09-docs/tahap-5-draf-paper.md), [08-laporan/laporan-penelitian.md](../08-laporan/laporan-penelitian.md) |
-| 2026-06-13 | Tahap 5 | Verifikasi CVE-2026-48524 (terkonfirmasi via GHSA-fhv5-28vv-h8m8); pencarian 18 referensi literatur nyata & penyusunan bibliografi Mendeley; pelengkapan §2.4 *Related Work* di `03-tinjauan-pustaka.md` dan `07-daftar-pustaka.md`; penyusunan naskah konsolidasi `naskah-jurnal.md`/`.docx` | [02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md), [02-literatur/daftar-pustaka.bib](../02-literatur/daftar-pustaka.bib), [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md) |
-| 2026-06-15 | Tahap 3 & 4 | Perluasan replikasi dari 5 menjadi 40 per kombinasi: regenerasi token JWT legitimate (sebelumnya *expired*), flush cache Redis, eksekusi matrix penuh 400 run (2 `CACHE_MODE` × 5 `traffic_variant` × 40 replikasi) via `run-matrix.sh`, seluruhnya `k6_exit_code = 0` (selesai 2026-06-15T09:53:24Z); dataset 50-run lama diarsipkan ke `04-data/_archive-50run-20260612/`; pipeline analisis (`run_all.py`) dijalankan ulang atas dataset baru; seluruh statistik di `naskah-jurnal.md`/`.docx`, `00-outline.md`, dan dokumen `09-docs/`/`08-laporan/`/`01-proposal/` diperbarui ke n=40 | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md), [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [04-data/matrix-40run.log](../04-data/matrix-40run.log) |
+|---------|-------|-----------|-----------|
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Identifikasi masalah, paradigma penelitian, distorsi instrumen biner Farida et al. 2024; penetapan topik keamanan Instagram di Kebumen | [09-docs/ws-01-distorsi-paradigma.md](../09-docs/ws-01-distorsi-paradigma.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Problem statement builder; penetapan gap method + context; rumusan masalah adopsi 2FA | [09-docs/ws-02-problem-statement.md](../09-docs/ws-02-problem-statement.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Literature mapping 5 paper; identifikasi method gap (instrumen biner) dan context gap (Kebumen) | [09-docs/ws-03-literature-gap.md](../09-docs/ws-03-literature-gap.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Perumusan RQ, hipotesis H0/H1, contribution statement; TAM Davis 1989 sebagai baseline teori | [09-docs/ws-04-rq-hypothesis.md](../09-docs/ws-04-rq-hypothesis.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Operasionalisasi variabel IV/DV/CV; definisi metrik Likert 1–5, threshold p<0.05, effect size r≥0.3 | [09-docs/ws-05-variabel-metrik.md](../09-docs/ws-05-variabel-metrik.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Mapping RQ ke arsitektur sistem; 3 komponen modular (blok IV, modul DV, filter CV) | [09-docs/ws-06-system-experiment.md](../09-docs/ws-06-system-experiment.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Desain eksperimen lengkap; threat analysis; statistical plan Spearman + regresi logistik | [09-docs/ws-07-experiment-design.md](../09-docs/ws-07-experiment-design.md) |
+| 2026-07-13 | Tahap 1 — Proposal & Desain | Integration checklist; skor 10/12; proposal siap eksekusi; file Word proposal dihasilkan | [09-docs/ws-08-proposal-integration.md](../09-docs/ws-08-proposal-integration.md), [01-proposal/proposal-penelitian.docx](../01-proposal/proposal-penelitian.docx) |
+| 2026-07-13 | Tahap 2 — Setup Eksperimen | Dokumentasi environment Python; dependencies (pandas, scipy, statsmodels, pingouin); config.yaml; README eksperimen | [09-docs/ws-09-experiment-setup.md](../09-docs/ws-09-experiment-setup.md), [05-kode/](../05-kode/) |
+| 2026-07-13 | Tahap 2 — Setup Eksperimen | Execution plan 7 run; data log terstruktur; anomaly protocol; robustness check 3 seed | [09-docs/ws-10-execution-plan.md](../09-docs/ws-10-execution-plan.md) |
+| 2026-07-13 | Tahap 2 — Setup Eksperimen | Data validation checklist; completeness check; anomaly investigation IQR; validation report | [09-docs/ws-11-data-validation.md](../09-docs/ws-11-data-validation.md) |
+| 2026-07-13 | Tahap 3 — Analisis & Penulisan | Result presentation plan; tabel korelasi simulasi; rencana visualisasi bar chart + heatmap + boxplot | [09-docs/ws-12-result-presentation.md](../09-docs/ws-12-result-presentation.md) |
+| 2026-07-13 | Tahap 3 — Analisis & Penulisan | Preprocessing log; cleaning plan; normalisasi tidak diperlukan (Spearman berbasis ranking) | [09-docs/ws-13-preprocessing.md](../09-docs/ws-13-preprocessing.md) |
+| 2026-07-13 | Tahap 3 — Analisis & Penulisan | Analysis & interpretation report; failure analysis kesadaran risiko & pengaruh sosial; limitation types | [09-docs/ws-14-analysis-interpretation.md](../09-docs/ws-14-analysis-interpretation.md) |
+| 2026-07-13 | Tahap 3 — Analisis & Penulisan | Paper structure checklist IMRAD; consistency matrix; writing quality check; paper outline lengkap | [09-docs/ws-15-scientific-writing.md](../09-docs/ws-15-scientific-writing.md) |
+| 2026-07-13 | Tahap 4 — Presentasi & Defense | Defense preparation sheet; slide outline 11 slide 15 menit; anticipatory defense 5 pertanyaan; simulasi Q&A | [09-docs/ws-16-presentation-defense.md](../09-docs/ws-16-presentation-defense.md) |
 
-## Status Ringkas
+---
 
-- **Tahap 1–4**: Selesai (dataset final: matrix 400 run / 40 replikasi per kombinasi, 2026-06-15).
-- **Tahap 5**: Konten naskah selesai dengan statistik n=40 (termasuk tinjauan pustaka & verifikasi CVE-2026-48524); menyisakan keputusan bahasa final dan pemindahan ke template jurnal tujuan (dilakukan oleh peneliti).
+## Status Tahapan
 
-## Item Tindak Lanjut (Checklist Sebelum Submission)
-
-- [x] Lengkapi matriks literatur dengan paper *related work* nyata ([02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md)) — 18 referensi terverifikasi
-- [x] Verifikasi CVE-2026-48524 terhadap basis data NVD/MITRE — terkonfirmasi via GHSA-fhv5-28vv-h8m8 (PyJWT, CVSS 3.7)
-- [ ] Tetapkan bahasa final naskah (Indonesia/Inggris) sesuai jurnal tujuan
-- [ ] Pindahkan konten [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md)/`.docx` ke template jurnal tujuan
-- [ ] Finalisasi penempatan figure/tabel sesuai gaya jurnal
-- [ ] Review akhir seluruh klaim numerik agar konsisten antar dokumen (lihat daftar pada [07-manuskrip/00-outline.md](../07-manuskrip/00-outline.md))
-
-## Korespondensi
-
-*(belum ada — tambahkan catatan korespondensi dengan pembimbing/editor jurnal di sini saat tersedia)*
+| Tahap | Kegiatan | Status |
+|-------|----------|--------|
+| Tahap 1 | Proposal & Desain Penelitian (WS-01–08) | ✅ Selesai |
+| Tahap 2 | Setup Eksperimen & Validasi (WS-09–11) | ✅ Selesai |
+| Tahap 3 | Analisis & Penulisan (WS-12–15) | ✅ Selesai |
+| Tahap 4 | Presentasi & Defense (WS-16) | ✅ Selesai |
+| Tahap 5 | Pengumpulan Data (100 responden) | ⏳ Belum dimulai |
+| Tahap 6 | Analisis Data Nyata | ⏳ Menunggu data |
+| Tahap 7 | Draf & Submit Paper Jurnal | ⏳ Menunggu analisis |
