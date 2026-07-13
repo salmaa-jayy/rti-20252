@@ -174,4 +174,5 @@ Ambil satu paragraf dari tulisan Anda (atau tulis paragraf baru) dan evaluasi ku
 
 > Apa perbedaan antara menulis "tentang" riset dan menulis sebagai "argumen" riset? Bagaimana urutan penulisan (Method → Discussion → Introduction) mengubah kualitas tulisan?
 
-> Menulis sebagai "argumen" berarti setiap kalimat mendorong pembaca menuju satu kesimpulan yang logis. Urutan Method → Discussion → Introduction memaksa kita menulis Introduction berdasarkan temuan aktual — hasilnya jauh lebih jujur dan koherensi argumentasinya lebih kuat._
+> 
+Menulis sebagai "argumen" berarti setiap kalimat mendorong pembaca menuju satu kesimpulan yang logis. Urutan Method → Discussion → Introduction memaksa kita menulis Introduction berdasarkan temuan aktual hasilnya jauh lebih jujur dan koherensi argumentasinya lebih kuat._
